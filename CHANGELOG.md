@@ -6,7 +6,20 @@ All changes to Padel Punto, newest version first. Downloads are on the [Releases
 
 ← [Back to the README](README.md)
 
-## Next version (not numbered yet)
+## 2.0.0 · not released yet
+
+> Padel Punto gets a big screen: the score live on a tablet at the court, with the new app Padel
+> Punto Panel.
+
+### ✨ New
+
+- **Tablet scoreboard:** Pair the watch with a tablet running the free app Padel Punto Panel, and
+  the score of the running match shows big at the court. Tap “Pair watch” on the tablet, then the
+  ball in the logo on the watch and “Pair”; both show the same check number, which you confirm
+  on the tablet. Once paired, the ball shows the tablet's code, and at every match the watch
+  connects by itself: points, games, sets, serve, team names and change of ends arrive live, a
+  small board at the top of the match screen turns green while connected. Nothing is sent
+  without a paired tablet, and only to it (see the [privacy policy](PRIVACY.md)).
 
 ### 🔧 Changed
 
