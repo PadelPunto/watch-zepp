@@ -51,6 +51,7 @@ import { tr, teamNames, hintText } from '../utils/i18n'
 import { createVoice, VOICE_LANG } from '../utils/voice'
 import { safePage, safe } from '../utils/errors'
 import { toast } from '../utils/toast'
+import { loadPanel, panelLink, panelEvent, scoreMessage } from '../utils/panel'
 
 // Card top per team: own team below, opponents above. The hint badge sits in the gap between
 // the cards (HINT_Y), so it never covers a part of a card that should count a tap.
@@ -177,6 +178,17 @@ Page(
           align_h: hmUI.align.RIGHT,
         }),
       )
+
+      // Padel Punto Panel: with a paired tablet the match connects to it in the background and
+      // sends the whole score after every change. A small board right of the time shows the link:
+      // lime while connected, gray while searching; none without a tablet or in a training.
+      if (!this.training) {
+        this.panelKey = loadPanel().key
+        this.link = panelLink({
+          onState: safe('link', (state) => this.renderLink(state)),
+          sync: () => this.panelMessage(['sync']),
+        })
+      }
 
       this.colors = [0, 1].map((t) => teamColor(this.state.cfg, t))
       this.teams = [0, 1].map((t) => this.buildTeam(t, px(CARD_Y[t])))
@@ -373,6 +385,8 @@ Page(
       }
       this.save()
       this.render()
+      const e = panelEvent(events)
+      this.sendPanel(events, e === 'match' ? state.winner : e === 'set' || e === 'game' ? t : null)
       this.announce(events.includes('game') ? t : null)
     },
 
@@ -528,7 +542,43 @@ Page(
       this.renderFlash()
       this.save()
       this.render()
+      this.sendPanel(['undo'])
       this.announce()
+    },
+
+    // The message for the tablet: the score as on the watch, the hint as a key the tablet translates.
+    panelMessage(events, w = null) {
+      const s = this.state
+      const info = deuceInfo(s)
+      let hint = info ? (info.n !== undefined ? { k: info.key, n: info.n } : { k: info.key }) : null
+      if (s.tb) hint = { k: s.mtb ? 'mtb' : 'tb' }
+      if (s.winner !== null) hint = null
+      return scoreMessage(s, {
+        e: panelEvent(events),
+        w,
+        key: this.panelKey,
+        now: Date.now(),
+        labels: pointLabels(s),
+        server: currentServer(s),
+        hint,
+      })
+    },
+
+    sendPanel(events, w = null) {
+      if (this.link) this.link.send(this.panelMessage(events, w))
+    },
+
+    // The image is created only when first needed: the watch ignores visible: false on a new image.
+    renderLink(state) {
+      const props = {
+        x: px(238),
+        y: px(21),
+        w: px(22),
+        h: px(16),
+        src: state === 'on' ? 'img/panel_link_on.png' : 'img/panel_link_off.png',
+      }
+      if (!this.linkW) this.linkW = hmUI.createWidget(hmUI.widget.IMG, props)
+      else this.linkW.setProperty(hmUI.prop.MORE, props)
     },
 
     render() {
@@ -683,6 +733,7 @@ Page(
       if (this.endConfirm) this.endConfirm.stop()
       if (this.hr && this.onHr) this.hr.offCurrentChange(this.onHr)
       if (this.voice) this.voice.release()
+      if (this.link) this.link.stop()
     },
   }),
 )

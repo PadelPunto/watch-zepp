@@ -11,6 +11,16 @@ import { safePage } from '../utils/errors'
 import { toast } from '../utils/toast'
 import { loadCourt } from '../utils/court'
 import { hourText } from '../utils/time'
+import { loadPanel } from '../utils/panel'
+
+// The logo's ball as the tablet button: [normal, pressed], without / with a paired tablet, for the
+// big logo and the small one (open match). Written out, so the asset test finds every path.
+const BALL_IMG = {
+  off: ['img/ball_panel.png', 'img/ball_panel_press.png'],
+  on: ['img/ball_panel_on.png', 'img/ball_panel_on_press.png'],
+  offSmall: ['img/ball_panel_s.png', 'img/ball_panel_s_press.png'],
+  onSmall: ['img/ball_panel_on_s.png', 'img/ball_panel_on_s_press.png'],
+}
 
 function bigProps(y, w, x, label, primary, onClick) {
   return {
@@ -70,6 +80,33 @@ Page(
         h: px(L.size),
         src: L.src,
       })
+      // The ball of the logo opens the tablet page (Padel Punto Panel). Its images (tools/panel_ball.py)
+      // sit exactly over the ball and are larger than it, so the tap area is bigger. With a paired
+      // tablet the board in the ball is filled, a ring goes round it and the code shows below.
+      const panel = loadPanel()
+      const B = this.open ? { x: 202, y: 38, size: 52, codeY: 85 } : { x: 205, y: 43, size: 70, codeY: 106 }
+      const ballImg = BALL_IMG[(panel.code ? 'on' : 'off') + (this.open ? 'Small' : '')]
+      button({
+        x: px(B.x),
+        y: px(B.y),
+        w: px(B.size),
+        h: px(B.size),
+        normal_src: ballImg[0],
+        press_src: ballImg[1],
+        click_func: () => replace({ url: 'page/panel' }),
+      })
+      if (panel.code) {
+        text({
+          x: px(B.x - 10),
+          y: px(B.codeY),
+          w: px(B.size + 20),
+          h: px(22),
+          text: panel.code,
+          text_size: px(this.open ? 16 : 18),
+          color: C.ball,
+          align_h: hmUI.align.CENTER_H,
+        })
+      }
       // Court time on the left of the logo (mirroring the cone); a set end time shows below it.
       const btnY = L.top + (L.size - 56) / 2
       button({

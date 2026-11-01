@@ -45,6 +45,9 @@ export function resetZos() {
     system: { osVersion: '5.0', firmwareVersion: '5.0.1.2', minAPI: '4.2' },
     disk: { total: 4e9, free: 3e9, app: 9e6, watchface: 2e7, music: 0, system: 9e8 },
     alarms: [], // @zos/alarm: { id, url, time (s), store }
+    // @zos/ble master: the scan callback (a test calls zos.ble.advertise(name) to play an
+    // advertisement), the messages written, and what should fail ('scan', 'connect', 'write').
+    ble: { scanning: false, scanCb: null, writes: [], fail: null, connections: 0, advertise: null, drop: null },
     alarmFails: false,
     // @zos/media player: paths that load, what was played, or no player at all.
     sound: { okPaths: null, played: [], noPlayer: false, volume: 60, created: 0 },
@@ -254,4 +257,57 @@ export function set(opts) {
 export function cancel(id) {
   zos.alarms = zos.alarms.filter((a) => a.id !== id)
   return 0
+}
+
+// ---- @zos/ble (master) ----
+// Connect, profile and write answer after 50 ms (mock timers), like the watch does a moment later.
+export function mstStartScan(cb) {
+  const b = zos.ble
+  if (b.fail === 'scan') return false
+  b.scanning = true
+  b.scanCb = cb
+  b.advertise = (name, rssi = -60) => {
+    if (b.scanning)
+      cb({ dev_name: name, dev_addr: new ArrayBuffer(6), rssi, service_uuid_array: [], service_data_array: [] })
+  }
+  return true
+}
+export const mstStopScan = () => {
+  zos.ble.scanning = false
+  return true
+}
+const later = (fn) => setTimeout(fn, 50)
+const bleCb = {}
+export function mstConnect(dev, cb) {
+  const b = zos.ble
+  // zos.ble.drop() plays a lost connection (the tablet switched off or out of reach).
+  b.drop = () => {
+    if (b.connections > 0) b.connections--
+    cb({ connected: 2, connect_id: 1 })
+  }
+  later(() => {
+    if (b.fail === 'connect') return cb({ connected: 1, connect_id: 0 })
+    b.connections++
+    cb({ connected: 0, connect_id: 1 })
+  })
+  return true
+}
+export const mstOnPrepare = (cb) => (bleCb.prepare = cb)
+export const mstOnCharaWriteComplete = (cb) => (bleCb.write = cb)
+export function mstBuildProfile() {
+  later(() => bleCb.prepare && bleCb.prepare({ status: 0, profile: 7 }))
+  return true
+}
+export function mstWriteCharacteristic(profile, uuid, data, len) {
+  zos.ble.writes.push(new TextDecoder().decode(new Uint8Array(data, 0, len)))
+  later(() => bleCb.write && bleCb.write({ status: zos.ble.fail === 'write' ? 1 : 0 }))
+}
+export const mstDestroyProfileInstance = () => true
+export const mstDisconnect = () => {
+  if (zos.ble.connections > 0) zos.ble.connections--
+  return true
+}
+export const mstOffAllCb = () => {
+  bleCb.prepare = null
+  bleCb.write = null
 }

@@ -42,7 +42,9 @@ function check(w, stale) {
     assert.equal(z.hr.listeners.length, 0, `heart rate still read on ${url}`)
   }
   // Pages opened with replace() catch swipe and back key themselves (theme.js onLeave).
-  if (!['page/match', 'page/options', 'page/court', 'page/training', 'page/info', 'page/diag'].includes(url)) {
+  if (
+    !['page/match', 'page/options', 'page/court', 'page/training', 'page/info', 'page/diag', 'page/panel'].includes(url)
+  ) {
     assert.equal(z.key, null, `keys still locked on ${url}`)
     assert.equal(z.gesture, null, `swipes still locked on ${url}`)
   }
