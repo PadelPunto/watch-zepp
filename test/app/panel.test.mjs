@@ -20,7 +20,10 @@ function pairWith(name, label = T.panelPair) {
   w.press(label)
   w.zos.ble.advertise(name)
   settle()
-  if (w.has(T.panelCheck)) w.press(T.ok)
+  if (w.has(T.panelCheck)) {
+    w.press(T.ok)
+    openPanel()
+  }
 }
 
 test('panel: the ball shows the board, opens the tablet page with an explanation and "Koppeln"', () => {
@@ -64,7 +67,8 @@ test('panel: pairs with the tablet in its pairing window, sends the pair message
   assert.ok(w.has(T.panelCheck), 'compare with the tablet')
   assert.ok(w.has(String(msg.n)), 'the check number is shown')
   w.press(T.ok)
-  assert.equal(w.url, 'page/panel')
+  assert.equal(w.url, 'page/start', 'OK goes back to the start screen')
+  openPanel()
   assert.equal(w.has(T.panelCheck), false)
   assert.ok(w.has('PPP-4711'))
   assert.ok(w.has(T.panelRepair))

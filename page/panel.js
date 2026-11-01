@@ -1,7 +1,8 @@
 // Tablet (Padel Punto Panel): opened from the ball of the start-screen logo. Without a paired
 // tablet it explains the pairing and offers "Koppeln"; while searching "Abbrechen"; with a paired
 // tablet it shows the code (as on the tablet) with "Neu koppeln" and "Vergessen". Right after
-// pairing it shows the check number to compare with the tablet, where "Passt" is tapped.
+// pairing it shows the check number to compare with the tablet, where "Passt" is tapped; OK goes
+// back to the start screen.
 // Opened and left with replace() like the options (button, swipe right or back key).
 import * as hmUI from '@zos/ui'
 import { replace } from '@zos/router'
@@ -62,7 +63,7 @@ Page(
         })
         text({ ...center, y: px(160), h: px(130), text: String(this.check), text_size: px(120), color: C.ball })
         text({ ...center, y: px(288), h: px(30), text: panelName(code), text_size: px(22), color: C.muted })
-        bigButton(326, 12, 366, tr('ok'), true, () => replace({ url: 'page/panel' }))
+        bigButton(326, 12, 366, tr('ok'), true, () => home())
         return
       }
 
