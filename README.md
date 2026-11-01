@@ -12,6 +12,7 @@
 <p align="center">
   <a href="#-get-it-on-your-watch">Install</a> ·
   <a href="#-features">Features</a> ·
+  <a href="#-tablet-scoreboard">Tablet</a> ·
   <a href="CHANGELOG.md">What's new</a> ·
   <a href="#-testers-wanted">Testers wanted</a> ·
   <a href="docs/DEVELOPMENT.md">Development</a>
@@ -98,6 +99,26 @@
 - **Languages:** English, German, Spanish, Italian and French
 - **Battery-friendly:** redraws only what changes, wakes the watch once a minute
 - **Diagnostics:** tap the logo on the info page (Options → i) 5 times for watch, storage and error log
+
+## 📺 Tablet scoreboard
+
+<p align="center">
+  <a href="https://github.com/fat-toni/PadelPuntoPanel"><img src="https://raw.githubusercontent.com/fat-toni/PadelPuntoPanel/main/docs/images/banner.png" alt="Padel Punto Panel: the score from the watch, big on a tablet at the court" width="720"></a>
+</p>
+
+Put an Android tablet at the court and everyone sees the score: the free app
+**[Padel Punto Panel](https://github.com/fat-toni/PadelPuntoPanel)** shows it big, live from your
+watch over Bluetooth, in two designs. You keep counting on the watch as always; if the tablet is
+gone, nothing changes.
+
+- **Pair once:** tap “Uhr koppeln” on the tablet (its texts are in German for now), then the ball
+  in the logo on the watch – both show the same check number
+- **Then it just works:** at every match the watch connects by itself; points, games, sets,
+  serve, team names and changes of ends arrive at once
+- **Private:** only your paired tablet gets the score, nothing goes to the internet
+  ([privacy policy](PRIVACY.md))
+- **Needs** Padel Punto 2.0 or newer and an Android tablet (Android 8+); the app is a download on
+  its [Releases](https://github.com/fat-toni/PadelPuntoPanel/releases/latest) page
 
 ## ⌚ Get it on your watch
 
