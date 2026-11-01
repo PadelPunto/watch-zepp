@@ -10,7 +10,7 @@ npm run check     # check formatting + run tests
 zeus dev          # run in the simulator
 zeus build        # build a .zab into dist/
 npm run build     # check + zeus build, keeps .gitignore (zeus may reset it); for the Zepp App Store
-npm run build -- --github     # the same without intermediate products, for a GitHub release
+npm run build -- --slim       # the same without intermediate products, to pass the file on
 npm run release-check         # all automatic checks before a release (tools/release_check.mjs)
 npm run release-check -- --zab   # the same, then builds and checks dist/PadelPunto-<version>.zab
 ```

@@ -1,4 +1,4 @@
-# Draws the pictures for the GitHub README: the banner (also used as the repo's social preview, with
+# Draws the pictures for the README: the banner (with
 # an Active 3 behind the Bip 6) and each screen in a Bip 6 watch frame. The screens are drawn from
 # the widgets that tools/screens.mjs records on the simulated watch, so they always show the current
 # app; the racket spin (docs/images/watch/serve-spin.webp, animated) from those of

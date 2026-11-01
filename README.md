@@ -3,7 +3,6 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/fat-toni/PadelPunto/releases/latest"><img src="https://img.shields.io/github/v/release/fat-toni/PadelPunto?label=download&color=d4f53c&labelColor=23272c&style=for-the-badge" alt="Download the latest version"></a>
   <img src="https://img.shields.io/badge/Amazfit-Bip%206%20%C2%B7%20Active%202%20Square%20%C2%B7%20Bip%20Max-d4f53c?labelColor=23272c&style=for-the-badge" alt="Amazfit Bip 6, Active 2 (Square), Bip Max">
   <img src="https://img.shields.io/badge/Zepp%20OS-4%2B-d4f53c?labelColor=23272c&style=for-the-badge" alt="Zepp OS 4+">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-GPL--3.0-d4f53c?labelColor=23272c&style=for-the-badge" alt="GPL-3.0 License"></a>
@@ -14,7 +13,6 @@
   <a href="#-features">Features</a> ·
   <a href="#-tablet-scoreboard">Tablet</a> ·
   <a href="CHANGELOG.md">What's new</a> ·
-  <a href="#-testers-wanted">Testers wanted</a> ·
   <a href="docs/DEVELOPMENT.md">Development</a>
 </p>
 
@@ -103,11 +101,11 @@
 ## 📺 Tablet scoreboard
 
 <p align="center">
-  <a href="https://github.com/fat-toni/PadelPuntoPanel"><img src="https://raw.githubusercontent.com/fat-toni/PadelPuntoPanel/main/docs/images/banner.png" alt="Padel Punto Panel: the score from the watch, big on a tablet at the court" width="720"></a>
+  <img src="docs/images/panel/banner.png" alt="Padel Punto Panel: the score from the watch, big on a tablet at the court" width="720">
 </p>
 
 Put an Android tablet at the court and everyone sees the score: the free app
-**[Padel Punto Panel](https://github.com/fat-toni/PadelPuntoPanel)** shows it big, live from your
+**Padel Punto Panel** shows it big, live from your
 watch over Bluetooth, in two designs. You keep counting on the watch as always; if the tablet is
 gone, nothing changes.
 
@@ -117,37 +115,25 @@ gone, nothing changes.
   serve, team names and changes of ends arrive at once
 - **Private:** only your paired tablet gets the score, nothing goes to the internet
   ([privacy policy](PRIVACY.md))
-- **Needs** Padel Punto 2.0 or newer and an Android tablet (Android 8+); the app is a download on
-  its [Releases](https://github.com/fat-toni/PadelPuntoPanel/releases/latest) page
+- **Needs** Padel Punto 2.0 or newer and an Android tablet (Android 8+) with Padel Punto Panel
 
 ## ⌚ Get it on your watch
 
-Padel Punto runs on the square Amazfit watches **Bip 6**, **Active 2 (Square)** and **Bip Max** (Zepp OS 4 or newer). It is not in the Zepp app store yet;
-grab the newest version from the **[Releases](https://github.com/fat-toni/PadelPunto/releases/latest)**.
+Padel Punto runs on the square Amazfit watches **Bip 6**, **Active 2 (Square)** and **Bip Max** (Zepp OS 4 or newer). It is not in the Zepp app store;
+install it from this folder.
 
 | | 📱 With the Zepp app | 🤖 With Gadgetbridge |
 |---|---|---|
 | **For you if** | you use the Zepp app (iPhone or Android) | you already use [Gadgetbridge](https://gadgetbridge.org) on Android instead of the Zepp app |
-| **You need** | a computer with Node.js | nothing else |
-| **How** | run `zeus preview`, scan the QR code | open the `.zab` file from the release with Gadgetbridge |
+| **You need** | a computer with Node.js | a computer with Node.js to build the file |
+| **How** | run `zeus preview`, scan the QR code | build the `.zab` file (`npm run build`) and open it with Gadgetbridge |
 
 👉 **[Step-by-step guide](docs/INSTALL.md)** for both ways (Windows, macOS and Linux)
-
-## 🙋 Testers wanted
-
-> [!TIP]
-> **Got another Amazfit watch with Zepp OS 4+?** Padel Punto is made for the square Bip 6, Active 2 (Square) and Bip Max, and I would love to bring it to
-> more watches, for example with round screens like the Active 2, Balance or T-Rex 3.
->
-> 1. Open an **[issue](https://github.com/fat-toni/PadelPunto/issues/new?title=Tester:%20)** with your watch model and
->    its Zepp OS version (on the watch: Settings → About).
-> 2. You get a test build for your watch.
-> 3. Play a match or two and tell me what looks wrong. Photos of the watch help a lot.
 
 ## 🧪 Tested like a final
 
 Every rule is checked against **28,800 simulated matches**, and the whole app runs on a simulated watch that gets
-**18,000 random taps and swipes**. Curious, or want to help? See **[Development](docs/DEVELOPMENT.md)**.
+**18,000 random taps and swipes**. More in **[Development](docs/DEVELOPMENT.md)**.
 
 ---
 

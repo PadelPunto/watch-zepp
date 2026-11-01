@@ -1,7 +1,6 @@
 # Install Padel Punto on your watch
 
-Padel Punto is not in the Zepp app store yet. Every version is on the
-**[Releases page](https://github.com/fat-toni/PadelPunto/releases)**, and there are two ways to get it onto your watch:
+Padel Punto is not in the Zepp app store. There are two ways to get it from this folder onto your watch:
 
 | | You use | You need |
 |---|---|---|
@@ -22,20 +21,7 @@ You install the app from your computer with the [Zeus CLI](https://docs.zepp.com
 
 You can also download it from [nodejs.org](https://nodejs.org).
 
-**2. Download Padel Punto**
-
-On the [Releases page](https://github.com/fat-toni/PadelPunto/releases), open the newest version and download
-**Source code (zip)** under *Assets*. Unzip it and open a terminal in the unzipped folder (`PadelPunto-…`).
-
-<details>
-<summary>Or with Git</summary>
-
-```bash
-git clone https://github.com/fat-toni/PadelPunto.git
-cd PadelPunto
-```
-
-</details>
+**2. Open a terminal in the Padel Punto folder**
 
 **3. Start the preview**
 
@@ -80,12 +66,12 @@ get once from your Zepp account. Gadgetbridge explains it in its
 
 **The `.zab` file** is the finished app package: the whole of Padel Punto in one file. With Gadgetbridge set up:
 
-1. On your phone, open the [Releases page](https://github.com/fat-toni/PadelPunto/releases) and download
-   **PadelPunto-<version>.zab** (under *Assets* of the newest version).
+1. Build it on the computer with `npm run build` (it lands in `dist/`) and copy
+   **PadelPunto-<version>.zab** to your phone.
 2. Tap the downloaded file and open it with Gadgetbridge (or share it to Gadgetbridge), then confirm the install.
    Padel Punto appears in the app list of your watch.
 
 > [!NOTE]
-> This way has not been tried with Padel Punto yet. If it works for you (or not), please open an issue.
+> This way has not been tried with Padel Punto yet.
 
 ← [Back to the README](../README.md)

@@ -49,8 +49,4 @@ The app collects no personal data from anyone, including children.
 ## Changes
 
 If this policy changes, the new version is published here, with a new date at the top. The full
-history is in the [GitHub repository](https://github.com/fat-toni/PadelPunto/commits/main/PRIVACY.md).
-
-## Contact
-
-Questions? Open an issue at <https://github.com/fat-toni/PadelPunto/issues>.
+history is in the project's Git history.

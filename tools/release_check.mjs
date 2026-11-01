@@ -2,7 +2,7 @@
 // before every release). Prints one line per check and exits with 1 if any fails.
 // Usage: npm run release-check            formatting, tests on every watch, versions, build stamp,
 //                                          README pictures, private files, privacy policy, pages
-//        npm run release-check -- --zab   the same, then builds the .zab for GitHub and checks it
+//        npm run release-check -- --zab   the same, then builds the slim .zab and checks it
 import { spawnSync } from 'node:child_process'
 import { readFileSync, readdirSync, statSync, existsSync, copyFileSync } from 'node:fs'
 import { join } from 'node:path'
@@ -112,7 +112,7 @@ check('README pictures up to date (tools/readme_art.py)', () => {
   return after ? ['were outdated and are redrawn now; look at them and commit:', ...after.split('\n')] : []
 })
 
-// 5. The local-only files stay off GitHub.
+// 5. The local-only files stay out of git.
 check('private files stay local (.gitignore)', () => {
   const local = ['TODO.md', 'CHANGELOG.de.md', 'BESCHREIBUNG.md', 'store/LISTING.md', 'tools/store_art.py', '.claude/x']
   const problems = []
@@ -156,11 +156,11 @@ check('every page exists and is tested', () => {
   ])
 })
 
-// 8. --zab: the package for the GitHub release, without intermediate products, with this version
+// 8. --zab: the slim package, without intermediate products, with this version
 // for every screen size, copied to dist/PadelPunto-<version>.zab.
 if (zab)
-  check(`dist/PadelPunto-${version}.zab (npm run build -- --github)`, () => {
-    const r = sh('bash', ['tools/build.sh', '--github'])
+  check(`dist/PadelPunto-${version}.zab (npm run build -- --slim)`, () => {
+    const r = sh('bash', ['tools/build.sh', '--slim'])
     if (r.status !== 0) return ['the build failed:', ...(r.stdout + r.stderr).trim().split('\n').slice(-12)]
     const built = files('dist')
       .filter((f) => f.includes(`-${version}-`) && f.endsWith('.zab'))
