@@ -6,6 +6,13 @@ All changes to Padel Punto, newest version first. Downloads are on the [Releases
 
 ← [Back to the README](README.md)
 
+## Next version (not numbered yet)
+
+### 🔧 Changed
+
+- **Options:** Score call and its volume are now one card, “Score call (English)”: Off, Low or
+  High. The greyed-out volume card while the call is off is gone. Your setting is kept.
+
 ## 1.8.0 · 2026-10-24
 
 > Training with points only (race or Americano), and the app in Italian and French.

@@ -22,7 +22,6 @@ export default {
   optVoice: 'Ansage (Englisch)',
   voiceOff: 'Aus',
   voiceOn: 'An',
-  optVolume: 'Lautstärke Ansage',
   volLow: 'Leise',
   volHigh: 'Laut',
   secRules: 'Spielregeln',

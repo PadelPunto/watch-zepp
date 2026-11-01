@@ -102,31 +102,24 @@ test('announcement: in English with an English app too', () => {
   assert.deepEqual(w.zos.sound.played.slice(-2), ['voice/en/p40.mp3', 'voice/en/p0.mp3'])
 })
 
-test('options: "Ansage" and its volume cycle and are saved', () => {
+test('options: one card "Ansage" cycles Aus, Leise, Laut and saves voice and volume', () => {
   w.launch()
   openOptions()
-  assert.ok(w.has(T.optVoice) && w.has(T.voiceOff) && w.has(T.volHigh))
+  assert.ok(w.has(T.optVoice) && !w.has(T.volLow) && !w.has(T.volHigh))
   option(T.optVoice)
-  assert.ok(w.has(T.voiceOn))
-  option(T.optVolume)
   assert.ok(w.has(T.volLow))
   assert.deepEqual([saved('cfg').voice, saved('cfg').volume], ['on', 'low'])
+  option(T.optVoice)
+  assert.ok(w.has(T.volHigh))
+  assert.deepEqual([saved('cfg').voice, saved('cfg').volume], ['on', 'high'])
+  option(T.optVoice) // off again: the volume is kept
+  assert.ok(!w.has(T.volHigh))
+  assert.deepEqual([saved('cfg').voice, saved('cfg').volume], ['off', 'high'])
 })
 
-test('options: "Lautstärke" is greyed out and does nothing while "Ansage" is off', async () => {
-  const { C } = await import('../../utils/theme.js')
+test('options: a saved score call shows its volume on the card', () => {
+  w.files.set('cfg.json', JSON.stringify({ voice: 'on', volume: 'low' }))
   w.launch()
   openOptions()
-  assert.equal(w.find(T.volHigh).props.color, C.dim)
-  assert.equal(w.find(T.optVolume).props.color, C.dim)
-  option(T.optVolume)
-  assert.ok(w.has(T.volHigh))
-  assert.ok(!w.files.has('cfg.json'), 'nothing saved')
-  option(T.optVoice) // on: the volume card wakes up
-  assert.equal(w.find(T.volHigh).props.color, 0xffffff)
-  assert.equal(w.find(T.optVolume).props.color, C.muted)
-  option(T.optVolume)
-  assert.equal(saved('cfg').volume, 'low')
-  option(T.optVoice) // off again: greyed out, the chosen volume stays
-  assert.equal(w.find(T.volLow).props.color, C.dim)
+  assert.ok(w.has(T.volLow))
 })

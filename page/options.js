@@ -28,7 +28,7 @@ const INFO = 'i'
 // kind 'section': heading above a group; 'hint': small grey line (with `open`: only while a
 // match is open); 'cycle': tap shows the next
 // value; 'name': keyboard, long press restores the default name; 'color': next team color.
-// `when(cfg)`: the card is greyed out and does nothing while it is false.
+// A cycle card shows cfg[key], or get(cfg) and set(cfg, value) when it stands for more than one key.
 const OPTIONS = [
   { kind: 'section', title: 'secRules' },
   { kind: 'cycle', key: 'mode', title: 'optMode', values: CHOICES.mode, label: (v) => tr(v) },
@@ -92,20 +92,18 @@ const OPTIONS = [
   },
   { kind: 'section', title: 'secGeneral' },
   { kind: 'cycle', key: 'lang', title: 'optLang', values: CHOICES.lang, label: langLabel },
+  // One card for the score call and its volume, saved as cfg.voice and cfg.volume as before
+  // (off keeps the last volume).
   {
     kind: 'cycle',
-    key: 'voice',
     title: 'optVoice',
-    values: CHOICES.voice,
-    label: (v) => (v === 'on' ? tr('voiceOn') : tr('voiceOff')),
-  },
-  {
-    kind: 'cycle',
-    key: 'volume',
-    title: 'optVolume',
-    values: CHOICES.volume,
-    when: (cfg) => cfg.voice === 'on',
-    label: (v) => (v === 'low' ? tr('volLow') : tr('volHigh')),
+    values: ['off', 'low', 'high'],
+    get: (cfg) => (cfg.voice === 'on' ? cfg.volume : 'off'),
+    set: (cfg, v) => {
+      cfg.voice = v === 'off' ? 'off' : 'on'
+      if (v !== 'off') cfg.volume = v
+    },
+    label: (v) => tr({ off: 'voiceOff', low: 'volLow', high: 'volHigh' }[v]),
   },
   {
     kind: 'cycle',
@@ -125,8 +123,6 @@ Page(
     build() {
       fullScreen()
       this.cfg = loadCfg()
-      // paint() of the cards with `when`, redrawn after every change
-      this.conditional = []
       // An open match keeps its rules; changes to them count from the next match. A training
       // has no such rules, so it gets no hint.
       const saved = read('match', null)
@@ -265,17 +261,14 @@ Page(
         }),
       )
 
-      const active = () => !opt.when || opt.when(this.cfg)
+      const get = () => (opt.get ? opt.get(this.cfg) : this.cfg[opt.key])
       const paint = () => {
         if (opt.kind === 'cycle') {
-          const idx = opt.values.indexOf(this.cfg[opt.key])
-          const on = active()
+          const idx = opt.values.indexOf(get())
           // Long values (e.g. "Siempre encendida") get a little smaller.
-          const fit = fitText(opt.label(this.cfg[opt.key]), px(260), [25, 22, 20].map(px))
+          const fit = fitText(opt.label(get()), px(260), [25, 22, 20].map(px))
           value.setProperty(hmUI.prop.MORE, { text: fit.text, text_size: fit.size })
-          value.setProperty(hmUI.prop.COLOR, on ? 0xffffff : C.dim)
-          title.setProperty(hmUI.prop.COLOR, on ? C.muted : C.dim)
-          dots.forEach((d, j) => d.setProperty(hmUI.prop.COLOR, on && j === idx ? C.ball : C.off))
+          dots.forEach((d, j) => d.setProperty(hmUI.prop.COLOR, j === idx ? C.ball : C.off))
         } else if (opt.kind === 'color') {
           const idx = this.cfg.colors[opt.team]
           value.setProperty(hmUI.prop.TEXT, tr(TEAM_COLORS[idx].key))
@@ -288,15 +281,13 @@ Page(
         }
       }
 
-      if (opt.when) this.conditional.push(paint)
       const onHold = opt.kind === 'name' ? () => this.resetName(opt.team, paint) : undefined
       tappable(
         card,
         [title, value],
         C.card,
-        () => (active() ? C.tile : C.card),
+        C.tile,
         () => {
-          if (!active()) return
           if (opt.kind === 'name') return this.editName(opt.team, paint)
           if (opt.kind === 'color') {
             // The other team's color is skipped, so the two cards never look alike.
@@ -305,7 +296,9 @@ Page(
             while (colors[opt.team] === colors[1 - opt.team])
             this.cfg.colors = colors
           } else {
-            this.cfg[opt.key] = opt.values[(opt.values.indexOf(this.cfg[opt.key]) + 1) % opt.values.length]
+            const next = opt.values[(opt.values.indexOf(get()) + 1) % opt.values.length]
+            if (opt.set) opt.set(this.cfg, next)
+            else this.cfg[opt.key] = next
           }
           // A new language redraws the whole page in it.
           if (opt.key === 'lang') {
@@ -315,7 +308,6 @@ Page(
             return
           }
           paint()
-          for (const other of this.conditional) if (other !== paint) other()
           this.saveSoon()
         },
         onHold,

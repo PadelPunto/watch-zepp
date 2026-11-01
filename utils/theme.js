@@ -14,7 +14,7 @@ export const C = {
   pill: 0x1c1f22,
   muted: 0x8b939b,
   off: 0x2c3136,
-  dim: 0x4f565d, // text of an option that is switched off by another one
+  dim: 0x4f565d, // text that steps back, e.g. the waiting team's serves in an Americano
   ball: 0xd4f53c,
   ballPress: 0xa9c42e,
   heart: 0xff5a5f,
@@ -317,7 +317,6 @@ export function onTouch(widgets, { down, slide, up }) {
 // holding longer than PRESS_MAX_MS without a lift. A tap that reaches several of the stacked
 // widgets only counts once. With onHold, holding still for HOLD_MS calls it instead of onTap;
 // not if the page scrolled meanwhile (the watch may stop reporting moves while it scrolls).
-// pressColor may be a function, asked on every touch.
 export function tappable(card, widgets, color, pressColor, onTap, onHold) {
   let lastTap = 0
   let pressed = false
@@ -333,7 +332,7 @@ export function tappable(card, widgets, color, pressColor, onTap, onHold) {
   onTouch([card, ...widgets], {
     down: () => {
       pressed = true
-      card.setProperty(hmUI.prop.COLOR, typeof pressColor === 'function' ? pressColor() : pressColor)
+      card.setProperty(hmUI.prop.COLOR, pressColor)
       clearTimeout(timer)
       timer = setTimeout(safe('touch', release), PRESS_MAX_MS)
       if (!onHold) return

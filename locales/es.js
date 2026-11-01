@@ -22,7 +22,6 @@ export default {
   optVoice: 'Anunciar marcador (inglés)',
   voiceOff: 'No',
   voiceOn: 'Sí',
-  optVolume: 'Volumen del anuncio',
   volLow: 'Bajo',
   volHigh: 'Alto',
   secRules: 'Reglas',

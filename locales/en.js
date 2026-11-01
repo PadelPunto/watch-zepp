@@ -22,7 +22,6 @@ export default {
   optVoice: 'Score call (English)',
   voiceOff: 'Off',
   voiceOn: 'On',
-  optVolume: 'Call volume',
   volLow: 'Low',
   volHigh: 'High',
   secRules: 'Rules',

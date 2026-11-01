@@ -22,7 +22,6 @@ export default {
   optVoice: 'Annonce du score (anglais)',
   voiceOff: 'Non',
   voiceOn: 'Oui',
-  optVolume: "Volume de l'annonce",
   volLow: 'Bas',
   volHigh: 'Fort',
   secRules: 'Règles',

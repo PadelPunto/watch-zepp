@@ -22,7 +22,6 @@ export default {
   optVoice: 'Annuncio punteggio (inglese)',
   voiceOff: 'No',
   voiceOn: 'Sì',
-  optVolume: 'Volume annuncio',
   volLow: 'Basso',
   volHigh: 'Alto',
   secRules: 'Regole',

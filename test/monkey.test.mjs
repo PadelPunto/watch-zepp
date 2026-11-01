@@ -144,7 +144,8 @@ for (let run = 1; run <= RUNS; run++) {
         lastMoves = moves
         check(w, stale)
       }
-      if (run % 2 === 0)
+      // Only while the call is still on: random taps on the options card may have turned it off.
+      if (run % 2 === 0 && JSON.parse(w.files.get('cfg.json')).voice === 'on')
         assert.ok(w.zos.sound.played.length > 20, `score call barely used: ${w.zos.sound.played.length}`)
     } catch (e) {
       e.message += `\n  last steps (seed run ${run}):\n    ${trail.join('\n    ')}`
