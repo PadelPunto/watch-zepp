@@ -1,353 +1,367 @@
 # 📝 Changelog – Padel Punto
 
-All changes to Padel Punto, newest version first.
+Alle Änderungen an Padel Punto, neueste Version oben.
+
+**Versionen:** [1.8.0](#180--24102026) · [1.7.0](#170--20102026) · [1.6.0](#160--17102026) · [1.5.0](#150--14102026) · [1.4.0](#140--10102026) · [1.3.0](#130--07102026) · [1.2.1](#121--04102026) · [1.2.0](#120--02102026) · [1.1.0](#110--28092026) · [1.0.0](#100--24092026)
+
+## 2.0.0 · noch nicht erschienen
+
+> Padel Punto bekommt einen großen Bildschirm: der Spielstand live auf einem Tablet am Platz, mit
+> der neuen App Padel Punto Panel.
 
-**Versions:** [1.8.0](#180--2026-10-24) · [1.7.0](#170--2026-10-20) · [1.6.0](#160--2026-10-17) · [1.5.0](#150--2026-10-14) · [1.4.0](#140--2026-10-10) · [1.3.0](#130--2026-10-07) · [1.2.1](#121--2026-10-04) · [1.2.0](#120--2026-10-02) · [1.1.0](#110--2026-09-28) · [1.0.0](#100--2026-09-24)
+### ✨ Neu
+
+- **Tablet-Anzeige:** Koppel die Uhr mit einem Tablet, auf dem die kostenlose App Padel Punto
+  Panel läuft, und der Spielstand des laufenden Matches erscheint groß am Platz. Tippe auf dem
+  Tablet „Uhr koppeln“, dann auf der Uhr auf den Ball im Logo und „Koppeln“; beide zeigen
+  dieselbe Prüfzahl, die du auf dem Tablet bestätigst. Danach zeigt der Ball den Code des
+  Tablets, und bei jedem Match verbindet sich die Uhr von selbst: Punkte, Spiele, Sätze,
+  Aufschlag, Teamnamen und Seitenwechsel kommen live an, eine kleine Tafel oben im Match-Bildschirm
+  wird grün, solange die Verbindung steht. Ohne gekoppeltes Tablet wird nichts gesendet, und
+  immer nur an dieses (siehe [Datenschutz](PRIVACY.md)).
+
+### 🔧 Geändert
+
+- **Optionen:** Ansage und Lautstärke sind jetzt eine Karte „Ansage (Englisch)“: Aus, Leise oder
+  Laut. Die graue Lautstärke-Karte bei ausgeschalteter Ansage gibt es nicht mehr. Deine
+  Einstellung bleibt erhalten.
+
+## 1.8.0 · 24.10.2026
 
-## 2.0.0 · not released yet
+> Training nur mit Punkten (Bis Ziel oder Americano) und die App auf Italienisch und Französisch.
 
-> Padel Punto gets a big screen: the score live on a tablet at the court, with the new app Padel
-> Punto Panel.
+### ✨ Neu
 
-### ✨ New
+- **Training:** Über das neue Hütchen rechts neben dem Logo zählst du nur Punkte, ohne Spiele und
+  Sätze. Auf einer kleinen Einstellungsseite wählst du die Art, dann „Los“ und wie gewohnt „Wer
+  schlägt auf?“:
+  - **Bis Ziel** 7, 11, 15 oder 21 mit 2 Punkten Vorsprung; spätestens bei 9, 15, 19 oder 25
+    gewinnt, wer vorne ist. Das Kästchen „NOCH“ zeigt ehrlich, wie viele Punkte jedem Team fehlen
+    (bei 20:20 bis 21 steht dort 2), und leuchtet beim Matchball, den auch der Hinweis nennt
+    („Matchball GRÜN“).
+  - **Americano:** 16, 24 oder 32 Punkte insgesamt, der Aufschlag wechselt alle 2 oder 4 Punkte.
+    Die Kästchen zeigen die restlichen Aufschläge und den nächsten Block des anderen Teams, der
+    Hinweis die Punkte, die noch zu spielen sind. Unentschieden ist möglich.
+  - Ein Ball zeigt, wer aufschlägt, ein Balken füllt sich bis zum Ziel, die Teams heißen nach
+    ihren Farben (GRÜN gegen BLAU). Kein Seitenwechsel, keine Pausen und keine Ansage im
+    Training. Die Einstellungen werden gemerkt, im Verlauf steht z. B. „Bis 21 · 21:15“ oder
+    „Americano 24“.
+- **Italiano und Français:** Die App gibt es jetzt auch auf Italienisch und Französisch. Uhren
+  in einer dieser Sprachen bekommen sie automatisch, sonst unter Optionen → Sprache. Die Ansage
+  bleibt Englisch.
+
+### 🔧 Geändert
+
+- **Info** ist jetzt unten in den Optionen, als kleines rundes „i“ neben „Fertig“, statt als „i“
+  auf dem Startbildschirm.
+- **Entwickler** heißen jetzt „Toni & Claude AI“.
+- **Flotter:** Die Optionen reagieren sofort auf einen Tipp (gespeichert wird kurz danach und
+  immer beim Verlassen), der Startbildschirm spielt ein langes offenes Match nicht mehr nach, nur
+  um „Weiter“ zu zeigen, und Texte werden pro Seite nur einmal ausgemessen.
+
+### 🐞 Behoben
+
+- **Diagnose:** Der volle Uhrname passt (bei „Amazfit Active 2 (Square)“ war er abgeschnitten),
+  und die gespeicherte Platzzeit zählt beim Speicher mit.
+- **Optionen:** Bei einem offenen Training steht nicht mehr „Regeln gelten ab dem nächsten
+  Match“, denn ein Training hat diese Regeln nicht.
+
+## 1.7.0 · 20.10.2026
+
+> Kurze Sätze, Platzzeit, eine klarere englische Ansage und ein neues Logo.
+
+### ✨ Neu
+
+- **Kurze Sätze:** Die neue Option „Spiele pro Satz“ (Spielregeln) bietet neben 6 Spielen auch
+  kurze Sätze bis 4 Spiele (FIP, alternative Zählweise): Ein Satz ist mit 4 Spielen und 2 Vorsprung
+  gewonnen, z. B. 4:2 oder 5:3; bei 4:4 entscheidet ein Tiebreak bis 7, der Satz zählt dann 5:4.
+  Das passt gut, wenn die Platzzeit knapp ist.
+- **Platzzeit:** Über das neue Uhr-Symbol links neben dem Logo stellst du ein, bis wann der Platz
+  gebucht ist (z. B. 14:00), und wie viele Minuten vorher die Uhr erinnern soll (5, 10 oder 15).
+  Zur Erinnerung und zum Ende vibriert die Uhr kräftig und zeigt „Noch 5 Minuten“ bzw. „Platzzeit
+  vorbei“, auch wenn die App gerade geschlossen ist. „OK“ führt zurück ins laufende Match. Die
+  Endzeit steht klein unter dem Uhr-Symbol; „Löschen“ nimmt sie wieder weg.
+
+### 🔧 Geändert
+
+- **Optionen übersichtlicher:** „Puls im Match“ steht jetzt unter „Allgemein“, „Im Match“ ist dadurch
+  kürzer.
+- **Lautstärke nur mit Ansage:** Solange die „Ansage“ aus ist, ist „Lautstärke Ansage“ ausgegraut und
+  lässt sich nicht umstellen.
+- **Neue Stimme für die Ansage:** viel besser verständlich und ohne Lizenz-Einschränkungen. Jedes
+  Wort ist aus mehreren Aufnahmen das am besten verständliche. Die Ansage ist jetzt immer auf
+  Englisch, wie im Padel üblich, egal welche App-Sprache: „Ansage (Englisch)“.
+- **Logo:** Der Schläger hat jetzt einen Kopf in Diamant-Form und sieht so mehr nach Padelschläger aus.
+- **Info:** Als Entwickler stehen jetzt „Fat Toni & Claude“ da.
+- **Lizenz:** Der Code steht jetzt unter der GNU GPL v3 (vorher MIT). Er darf weiter frei genutzt,
+  verändert und geteilt werden; veränderte Versionen, die man weitergibt, müssen offen bleiben.
+
+### 🐞 Behoben
+
+- Wer ein Match genau in dem Moment verlassen hat, in dem die Ansage das nächste Wort lud, hörte
+  dieses Wort noch auf der Startseite.
+
+## 1.6.0 · 17.10.2026
+
+> Die Uhr sagt den Stand laut an.
+
+### ✨ Neu
+
+- **Ansage des Spielstands:** Die Uhr sagt nach jedem Punkt den Stand über ihren Lautsprecher an,
+  zuerst die Punkte des aufschlagenden Teams: „dreißig – fünfzehn“, „fünfzehn beide“, „Einstand“,
+  „Vorteil Aufschlag“ / „Vorteil Rückschlag“, „Golden Point“, „Star Point“, im Tiebreak die Zahlen.
+  Ist ein Spiel gewonnen, sagt sie die Teamfarbe des Siegers, z. B. „Grün – gewonnen“.
+  Auch nach „Rückgängig“ kommt der neue Stand. Einstellbar unter Optionen → Allgemein → „Ansage“:
+  An oder Aus (Standard), in Deutsch, Englisch oder Spanisch wie die App.
+  Die Stimmen sind in der App enthalten, es braucht kein Internet.
+- **Lautstärke der Ansage:** Leise oder Laut. Während des Matches stellt die App die
+  Lautstärke der Uhr darauf ein und danach wieder zurück.
+
+### 🔧 Verbessert
+
+- **Startbildschirm luftiger:** Logo, Name und Knöpfe haben mehr Abstand. Bei einem offenen Match wird
+  das Logo kleiner, damit „Weiter“ Platz hat und die unteren Knöpfe nicht in den Ecken sitzen.
+
+## 1.5.0 · 14.10.2026
+
+> Schläger-Dreh für den Aufschlag, 3. Satz ohne Tiebreak und ein Aufschlag-Balken, den man auch in der Sonne sieht.
+
+### ✨ Neu
+
+- **Zufall beim Aufschlag:** Bei „Wer schlägt auf?“ gibt es den Knopf „Zufall“. Dann erscheint ein
+  Padelschläger und der Knopf heißt „Drehen“: Der Schläger dreht sich, wird langsamer und zeigt am Ende
+  mit dem Kopf auf das Team, das aufschlägt.
+- **Dritter Satz ohne Tiebreak:** Die Option „3. Satz“ hat die neue Wahl „Ohne Tiebreak“
+  (FIP-Regel 1.4, Vorteilssatz): Im dritten Satz wird bei 6:6 weitergespielt, bis ein Team zwei
+  Spiele vorne liegt, z. B. 8:6 oder 12:10. Die ersten beiden Sätze haben weiter den Tiebreak.
+- **Match-Tiebreak bis 7:** Statt des dritten Satzes geht jetzt auch ein Match-Tiebreak bis 7
+  (mit 2 Punkten Vorsprung), neben dem bisherigen bis 10.
+
+### 🔧 Verbessert
+
+- **Aufschlag auch bei Sonne erkennbar:** Statt der kleinen Aufschlagfelder neben dem Teamnamen
+  leuchtet jetzt ein grüner Balken am linken oder rechten Rand der Karte des aufschlagenden Teams,
+  auf der Seite, von der aufgeschlagen wird (bei Golden/Star Point auf beiden Seiten). Den sieht man
+  auch bei Sonne und verschmiertem Display. Der Teamname hat dadurch mehr Platz.
+- **Pausen einfacher:** Die Option „Pausen“ ist jetzt nur noch An oder Aus, Standard ist Aus.
+  Eingeschaltet gelten die Zeiten aus den FIP-Regeln: 90 Sekunden beim Seitenwechsel, 2 Minuten nach
+  einem Satz. Eine Zeile unter der Option nennt die Zeiten.
+- **Namen und Farben gelten sofort:** Wer ein Match mit „Verlassen“ unterbricht und in den Optionen
+  Teamnamen oder Teamfarben ändert, sieht sie nach „Weiter“ gleich im laufenden Match. Die
+  Spielregeln bleiben für das laufende Match, wie sie waren; ein Hinweis in den Optionen sagt, dass
+  sie ab dem nächsten Match gelten.
+- **Keine gleichen Teamfarben mehr:** Beim Durchtippen der Farben wird die Farbe des anderen Teams
+  übersprungen.
+- Ist der Speicher der Uhr voll, sagt „Wer schlägt auf?“ das jetzt, statt ohne Meldung zur Startseite
+  zurückzuspringen.
+
+## 1.4.0 · 10.10.2026
+
+> Seitenwechsel wie im Freizeitspiel, Pausen-Timer, großes Satz-Banner und eine Diagnose-Seite.
+
+### ✨ Neu
 
-- **Tablet scoreboard:** Pair the watch with a tablet running the free app Padel Punto Panel, and
-  the score of the running match shows big at the court. Tap “Pair watch” on the tablet, then the
-  ball in the logo on the watch and “Pair”; both show the same check number, which you confirm
-  on the tablet. Once paired, the ball shows the tablet's code, and at every match the watch
-  connects by itself: points, games, sets, serve, team names and change of ends arrive live, a
-  small board at the top of the match screen turns green while connected. Nothing is sent
-  without a paired tablet, and only to it (see the [privacy policy](PRIVACY.md)).
+- **Seitenwechsel wie in der Freizeit:** Neue Option „Seitenwechsel“ unter Spielregeln: nach Spiel 1, 3, 5 …
+  (offizielle Regel, Standard), nur nach dem Satz oder nie. Die bisherige Option heißt jetzt „Signal
+  Seitenwechsel“ (doppelt vibrieren oder nur anzeigen).
+- **Pausen-Timer:** Beim Seitenwechsel und nach jedem Satz zählt die Uhr die Pause herunter („Pause 1:25“)
+  und vibriert zweimal kräftig, wenn es weitergeht. Wie in den Padel-Regeln gibt es nach dem ersten Spiel
+  eines Satzes und im Tiebreak keine Pause. Der nächste Punkt beendet die Pause sofort. Die Länge stellst
+  du in den Optionen unter „Pausen“ ein: 30, 60, 90 (Standard) oder 120 Sekunden, oder aus.
+- **Satzgewinn groß auf dem Bildschirm:** Nach einem gewonnenen Satz erscheint für 3 Sekunden groß
+  „SATZ“, der Name des Siegers und das Satzergebnis in seiner Teamfarbe (beim Matchgewinn „SIEG“).
+  Ein Tipp schließt die Anzeige, ohne einen Punkt zu zählen.
+- **Satz- und Matchgewinn zum Spüren:** Ein gewonnener Satz vibriert einmal lang, der Matchgewinn
+  dreimal lang. So merkt man es auch ohne Blick auf die Uhr.
+- **Diagnose:** Fünfmal schnell auf das Logo in der Info tippen öffnet eine Diagnose-Seite mit
+  Uhrmodell, Display, Zepp-OS-Version, Speicherbelegung und Fehlerprotokoll.
+- Geht in der App etwas schief, läuft sie weiter und merkt sich den Fehler für die Diagnose; ein kurzer
+  Hinweis erscheint.
+
+### 🔧 Geändert
+
+- **Teamkarten in Teamfarbe:** Die Karten im Match und bei „Wer schlägt auf?“ sind dunkel in der Farbe
+  ihres Teams getönt. So erkennt man die Teams, ohne zu lesen.
+- **Gewonnenes Spiel leuchtet auf:** Die Spiele-Kachel des Teams, das ein Spiel gewinnt, leuchtet kurz in
+  Ballfarbe auf.
+- **„Verlassen“ führt zur Startseite:** Im Match bringt „Verlassen“ dich jetzt auf die Startseite statt
+  ganz aus der App. Das Match bleibt gespeichert und geht mit „Weiter“ weiter.
+
+## 1.3.0 · 07.10.2026
+
+> Übersichtlichere Optionen, mehr Platz auf der Teamkarte und sichereres Speichern.
+
+### ✨ Neu
 
-### 🔧 Changed
+- **Standardnamen per langem Drücken:** In den Optionen lange auf „Name Team 1“ oder „Name Team 2“ drücken,
+  dann steht wieder der Standardname da („Wir“ bzw. „Die“, in der gewählten Sprache). Kurz tippen öffnet
+  wie bisher die Tastatur. Ein Hinweis unter den Teamfarben erinnert daran.
 
-- **Options:** Score call and its volume are now one card, “Score call (English)”: Off, Low or
-  High. The greyed-out volume card while the call is off is gone. Your setting is kept.
+### 🔧 Geändert
 
-## 1.8.0 · 2026-10-24
+- Die Optionen sind jetzt in Gruppen sortiert: Spielregeln, Teams, Im Match und Allgemein, mit gut lesbaren
+  Überschriften.
+  „Fertig“ ist ein kleinerer Knopf in der Mitte, wie „Zurück“ auf den anderen Seiten.
+- „Wer schlägt auf?“: Auch „Abbrechen“ ist jetzt ein kleinerer Knopf in der Mitte und reicht nicht mehr in
+  die runden Ecken. Im Verlauf haben „Ältere anzeigen“ und „Verlauf löschen“ dieselbe Schriftgröße.
+- Info: Als Entwickler steht jetzt „Toni & Claude“.
+- Info, Optionen und Verlauf: Uhrzeit und Seitentitel stehen jetzt oben in der Mitte und nicht mehr in
+  den runden Ecken des Displays. „Zurück“ ist ein kleinerer Knopf in der Mitte.
+- Ist die Uhr auf eine Sprache gestellt, die die App nicht kennt (z. B. Französisch), erscheint die App
+  jetzt auf Englisch statt auf Deutsch.
+- **Teamfarben bleiben gespeichert** wie alle anderen Optionen, auch nach einem Neustart der App.
+- **Neue Aufteilung der Teamkarten im Match:** Das kleine Spielfeld für den Aufschlag sitzt jetzt rechts
+  oben neben der Spiele-Kachel, die Sätze stehen rechts neben den großen Punkten. Dadurch hat der Teamname
+  viel mehr Platz. Er wird nur so weit verkleinert, wie nötig; ist er selbst dann zu breit, endet er mit „…“.
+- Lange Texte werden bei Bedarf etwas kleiner, statt über den Rand zu laufen: die Frage „Wer schlägt auf?“
+  auf Spanisch, die Zeile mit Datum, Modus und Dauer im Verlauf und lange Werte in den Optionen.
+- Nach einem Match zeigt die Uhr beim Aufwecken wieder das Zifferblatt statt der App.
 
-> Training with points only (race or Americano), and the app in Italian and French.
+### ⚡ Schneller und sparsamer
 
-### ✨ New
+- Während eines Matches weckt die App die Uhr nur noch einmal pro Minute statt zweimal, um Uhrzeit und
+  Spieldauer zu aktualisieren.
+- Pro Punkt wird nur noch knapp halb so viel auf die Uhr geschrieben: gespeichert werden die Punkte und
+  die Spielregeln, der Spielstand wird daraus beim Öffnen berechnet.
 
-- **Training:** The new cone right of the logo counts only points, without games and sets. Pick
-  the type on a small settings page, then “Start” and “Who serves first?” as usual:
-  - **Race** to 7, 11, 15 or 21 with a lead of two; at the latest at 9, 15, 19 or 25 whoever is
-    ahead wins. The tile shows honestly how many points each team still needs (at 20:20 to 21 it
-    says 2) and lights up at a match point, which the badge names too (“Match point GREEN”).
-  - **Americano:** 16, 24 or 32 points in all, the serve changes every 2 or 4 points. The tiles
-    show the server's serves left and the other team's next turn, the badge the points still to
-    play. It can end in a draw.
-  - A ball marks the serving team, a bar fills towards the target, the teams are called by their
-    colors (GREEN against BLUE). No change of ends, breaks or score call in a training. Your
-    settings are remembered, and the history shows e.g. “To 21 · 21:15” or “Americano 24”.
-- **Italiano and Français:** The app now speaks Italian and French too. Watches set to one of
-  them pick it up automatically, or choose it under Options → Language. The score call stays in
-  English.
+### 🐞 Behoben
 
-### 🔧 Changed
+- Ist der Speicher der Uhr voll, geht ein beendetes Match nicht mehr verloren. Es bleibt gespeichert und
+  lässt sich mit „Weiter“ fortsetzen, bis wieder Platz ist; ein Hinweis erscheint.
+- Im Verlauf löscht Scrollen kein Match mehr, auch wenn die Karte gerade rot (zum Löschen bereit) ist.
+  Beim Scrollen wird auch keine Karte mehr versehentlich rot markiert.
+- Beschädigte gespeicherte Daten bringen die App nicht mehr zum Absturz. Der Spielstand wird aus den
+  gespielten Punkten neu berechnet, ungültige Einstellungen werden auf den Standard zurückgesetzt.
+- Nach einem gewonnenen Match-Tiebreak zeigte die Kachel „SPIELE“ ein Spiel zu viel (1:0 statt 0:0).
 
-- **Info** has moved to the end of the options, as a small round “i” next to “Done”; the “i” on the
-  start screen is gone.
-- **Developers** are now listed as “Toni & Claude AI”.
-- **Snappier:** the options react at once to a tap (the value is saved a moment later, and always
-  when you leave), the start screen no longer replays a long open match just to show “Continue”,
-  and texts are measured only once per page.
+## 1.2.1 · 04.10.2026
 
-### 🐞 Fixed
+> Ein Match verlassen, ohne es zu beenden.
 
-- **Diagnostics:** the full watch name fits (“Amazfit Active 2 (Square)” was cut off), and the
-  saved court time counts in the storage figures.
-- **Options:** with a training left open, the note “Rules apply from the following match” no
-  longer shows, as a training has no such rules.
-
-## 1.7.0 · 2026-10-20
-
-> Short sets, a court timer, a clearer English score call and a new logo.
-
-### ✨ New
-
-- **Short sets:** The new option “Games per set” (Rules) offers short sets to 4 games next to 6
-  (FIP alternative scoring): a set is won with 4 games and a lead of two, e.g. 4:2 or 5:3; at 4:4 a
-  tiebreak to 7 decides it and the set counts 5:4. Handy when court time is short.
-- **Court time:** With the new clock button left of the logo you set when your court booking ends
-  (e.g. 14:00) and how many minutes before the watch should remind you (5, 10 or 15). At the
-  reminder and at the end the watch vibrates firmly and shows “5 minutes left” or “Court time is
-  up”, even when the app is closed. “OK” takes you back into the running match. The end time shows
-  below the clock button; “Clear” removes it.
-
-### 🔧 Changed
-
-- **Tidier options:** “Heart rate in match” now sits under “General”, which makes “In the match” shorter.
-- **Call volume only with the score call:** While “Score call” is off, “Call volume” is greyed
-  out and cannot be changed.
-- **New voice for the score call:** much clearer and free of license restrictions. Each word
-  was picked from several takes for how well it can be understood. The score call is now always
-  in English, the padel standard, whatever the app language: “Score call (English)”.
-- **Logo:** The racket now has a diamond-shaped head, so it looks more like a padel racket.
-- **Info:** The developers are now listed as “Fat Toni & Claude”.
-- **License:** The code is now under the GNU GPL v3 (before: MIT). You may still use, change and
-  share it freely; changed versions you pass on must stay open source under the same license.
+### ✨ Neu
 
-### 🐞 Fixed
-
-- Leaving a match just as the score call was loading its next word still played that word on the
-  start screen.
-
-## 1.6.0 · 2026-10-17
-
-> The watch calls the score out loud.
-
-### ✨ New
-
-- **Score call:** After every point the watch calls out the score on its speaker, the serving
-  team first: “thirty – fifteen”, “fifteen all”, “deuce”, “advantage server” / “advantage
-  receiver”, “golden point”, “star point”, and the numbers in a tiebreak. When a game is won,
-  it calls the winner’s team color, e.g. “Green – wins”. After “Undo” it calls the
-  new score too. Switch it on under Options → General → “Score call” (off by default); it speaks
-  German, English or Spanish like the app. The voices come with the app, no internet needed.
-- **Call volume:** Low or High. During a match the app sets the watch volume to it and
-  puts it back afterwards.
-
-### 🔧 Improved
-
-- **Roomier start screen:** More space between logo, name and buttons. With an open match the logo
-  gets smaller, so “Continue” fits and the lower buttons stay out of the corners.
-
-## 1.5.0 · 2026-10-14
-
-> Spin a racket to pick the server, a third set without tiebreak and a serve bar you can see in the sun.
-
-### ✨ New
-
-- **Random serve:** “Who serves first?” has a “Random” button. It brings up a padel racket and turns
-  into “Spin”: the racket spins, slows down and stops with its head pointing at the team that serves.
-- **Third set without tiebreak:** The option “3rd set” has the new choice “No tiebreak” (FIP rule
-  1.4, advantage set): at 6:6 in the third set, play goes on until a team leads by two games, e.g.
-  8:6 or 12:10. The first two sets keep their tiebreak.
-- **Match tiebreak to 7:** Instead of the third set there can now also be a match tiebreak to 7
-  (with a lead of two points), next to the one to 10.
-
-### 🔧 Improved
-
-- **Serve visible in sunlight:** Instead of the small serve boxes next to the team name, a green bar
-  now lights up on the left or right edge of the serving team’s card, on the side the serve comes
-  from (both sides at Golden/Star Point). It stays easy to see in sunlight and on a smudged screen.
-  The team name gets more room.
-- **Simpler breaks:** The option “Breaks” is now just On or Off, Off by default. When on, the
-  FIP times apply: 90 seconds at a change of ends, 2 minutes after a set. A line below the option
-  names the times.
-- **Names and colors apply at once:** If you pause a match with “Leave” and change team names or
-  team colors in the options, “Continue” shows them right away in the running match. The rules of
-  the running match stay as they were; a note in the options says they apply from the next match.
-- **No more matching team colors:** Tapping through the colors skips the other team’s color.
-- When the watch storage is full, “Who serves first?” now says so instead of silently going back to
-  the start screen.
-
-## 1.4.0 · 2026-10-10
-
-> Change ends like in leisure play, a break timer, a big set banner and a diagnosis page.
-
-### ✨ New
-
-- **Change ends like in leisure play:** New option “Change ends” under Rules: after games 1, 3, 5 …
-  (official rule, default), only after the set, or never. The previous option is now called “Change-ends
-  signal” (vibrate twice or show only).
-- **Break timer:** At a change of ends and after every set, the watch counts down the break
-  (“Break 1:25”) and buzzes twice firmly when play resumes. As in the padel rules, there is no break after
-  the first game of a set or in a tiebreak. The next point ends the break at once. Set the length in the
-  options under “Breaks”: 30, 60, 90 (default) or 120 seconds, or off.
-- **A won set, big on the screen:** After a won set, “SET”, the winner's name and the set score appear
-  big in the winner's team color for 3 seconds (“WIN” for the match). A tap closes it without counting a
-  point.
-- **Feel a won set or match:** A won set gives one long buzz, the won match three. So you notice it
-  without looking at the watch.
-- **Diagnosis:** Tapping the logo on the Info page five times quickly opens a diagnosis page
-  with the watch model, display, Zepp OS version, storage use and an error log.
-- If something goes wrong in the app, it keeps running and remembers the error for the diagnosis page; a
-  short notice appears.
-
-### 🔧 Changed
-
-- **Team cards in team colors:** The cards in the match and on “Who serves first?” are tinted dark in their
-  team's color, so you can tell the teams apart without reading.
-- **A won game lights up:** The games tile of the team that wins a game briefly lights up in ball color.
-- **“Leave” goes to the start page:** In a match, “Leave” now takes you to the start page instead of out
-  of the app. The match stays saved and carries on with “Continue”.
-
-## 1.3.0 · 2026-10-07
-
-> Tidier options, a roomier team card and safer storage.
-
-### ✨ New
+- **Match verlassen ohne es zu beenden:** Nach einem Tipp auf „Ende“ wird aus „Rückgängig“ für 3 Sekunden
+  „Verlassen“. Damit gehst du aus der App, z. B. um kurz etwas anderes anzuschauen. Das Match bleibt
+  gespeichert und läuft mit „Weiter“ weiter.
 
-- **Default names with a long press:** In the options, press and hold “Team 1 name” or “Team 2 name” to
-  get the default name back (“Us” or “Them”, in the chosen language). A short tap opens the keyboard as
-  before. A hint below the team colors reminds you of this.
+### 🔧 Geändert
 
-### 🔧 Changed
-
-- The options are now sorted into groups: Rules, Teams, In the match and General, with easy-to-read
-  headings.
-  “Done” is a smaller button in the middle, like “Back” on the other pages.
-- “Who serves?”: “Cancel” is now also a smaller button in the middle and no longer reaches into the
-  rounded corners. In History, “Show older” and “Clear history” use the same text size.
-- Info: the developer is now listed as “Toni & Claude”.
-- Info, Options and History: the time and the page title now sit centered at the top instead of in the
-  rounded corners of the display. “Back” is a smaller button in the middle.
-- If the watch is set to a language the app doesn't know (e.g. French), the app now appears in English
-  instead of German.
-- **Team colors stay saved** like all other options, also after restarting the app.
-- **New layout of the team cards in the match:** The small court for the serve now sits at the top right
-  next to the games tile, and the sets are shown to the right of the big points. This gives the team name
-  much more room. It is only made as small as needed; if it is still too wide, it ends in “…”.
-- Long texts get a little smaller when needed instead of running over the edge: the question “Who serves
-  first?” in Spanish, the line with date, mode and duration in History, and long values in the options.
-- After a match, waking the watch shows the watch face again instead of the app.
+- **Wischen im Match gesperrt:** Wer beim Spielen über den Bildschirm wischt, landet nicht mehr aus
+  Versehen im App-Menü der Uhr. Raus geht es nur noch über „Ende“.
+- Wer über eine Karte wischt statt zu tippen, gibt damit keinen Punkt mehr.
 
-### ⚡ Faster and more efficient
+### 🐞 Behoben
 
-- During a match the app now wakes the watch only once a minute instead of twice to update the time and
-  the match duration.
-- Each point writes only about half as much to the watch: the points and the rules are saved, and the
-  score is worked out from them when the match is opened.
+- Eine Karte blieb manchmal eingefärbt, wenn der Finger über sie gezogen wurde.
 
-### 🐞 Fixed
+## 1.2.0 · 02.10.2026
 
-- When the watch's storage is full, an ended match is no longer lost. It stays saved and can be resumed
-  with “Continue” until there is room again; a notice appears.
-- Scrolling the history no longer deletes a match, even while its card is red (ready to delete).
-  Scrolling also no longer marks a card red by accident.
-- Damaged saved data no longer crashes the app. The score is rebuilt from the points played, and invalid
-  settings are reset to their defaults.
-- After winning a match tiebreak, the “GAMES” tile showed one game too many (1:0 instead of 0:0).
+> Uhr-Tasten im Match gesperrt, Puls abschaltbar.
 
-## 1.2.1 · 2026-10-04
+### ✨ Neu
 
-> Leave a match without ending it.
+- **Tasten im Match gesperrt:** Während eines Matches tun die Tasten der Uhr nichts mehr. So verlässt du
+  das Match nicht aus Versehen, wenn beim Schlagen das Handgelenk auf eine Taste drückt. Raus geht es
+  über „Ende“ oder per Wischen; das Match bleibt gespeichert und läuft mit „Weiter“ weiter.
+- **Puls im Match abschaltbar:** neue Option „Puls im Match“. Auf „Aus“ bleibt der Pulssensor während
+  des Matches aus, das spart Akku.
+- **Verlauf:** Zuerst erscheinen die 10 neuesten Matches, ältere mit „Ältere anzeigen“. Nach dem Löschen
+  eines Matches bleibt die Liste an derselben Stelle stehen.
 
-### ✨ New
+### 🔧 Geändert
 
-- **Leave a match without ending it:** After tapping “End”, “Undo” turns into “Leave” for 3 seconds. It
-  takes you out of the app, e.g. to quickly check something else. The match stays saved and goes on with
-  “Continue”.
+- Punkte gibt es nur noch per Tipp auf die Teamkarte. Die Tasten hoch und runter dafür funktionierten auf
+  der Bip 6 nicht wie gedacht und sind deshalb wie alle Tasten im Match gesperrt.
+- Im Match heißt der Knopf zum Zurücknehmen eines Punkts jetzt „Rückgängig“ statt „Zurück“.
+- Die Teamkarten sind etwas niedriger, das gelbe Hinweis-Schild sitzt jetzt genau zwischen ihnen und
+  verdeckt keine Tippfläche mehr.
+- Im Verlauf stehen Datum, Modus und Dauer in einer Zeile.
 
-### 🔧 Changed
+### 🐞 Behoben
 
-- **Swiping locked during a match:** Swiping across the screen while playing no longer drops you into the
-  watch's app menu by accident. The only way out is “End”.
-- Swiping across a card instead of tapping it no longer gives a point.
+- Wird ein Match im Tiebreak bei 6:6 abgebrochen, zeigt der Verlauf jetzt auch den Tiebreak-Stand,
+  z. B. „6:6(4:2)“.
+- Eine Teamkarte blieb eingefärbt, wenn der Finger beim Tippen von ihr abrutschte.
+- Kann die Uhr ein Match nicht speichern (z. B. Speicher voll), stürzt die App nicht mehr ab: Das Match
+  läuft weiter, und ein Hinweis erscheint.
 
-### 🐞 Fixed
+### 📦 Sonstiges
 
-- A card sometimes stayed highlighted after dragging a finger across it.
+- Die App braucht die Berechtigung für den alten Speicher nicht mehr. Daten aus Versionen vor 1.0.0
+  werden nicht mehr übernommen.
 
-## 1.2.0 · 2026-10-02
+## 1.1.0 · 28.09.2026
 
-> Watch buttons locked during a match, heart rate can be turned off.
+> Dein Team unten, einzelne Matches löschbar.
 
-### ✨ New
+### ✨ Neu
 
-- **Buttons locked during a match:** While a match is running, the watch buttons do nothing. You can no
-  longer leave the match by accident when your wrist presses a button during a shot. Leave via “End” or
-  by swiping; the match stays saved and goes on with “Continue”.
-- **Heart rate can be turned off:** new option “Heart rate in match”. When set to “Off”, the heart rate
-  sensor stays off during the match, which saves battery.
-- **History:** The 10 newest matches are shown first, older ones with “Show older”. After deleting a
-  match, the list stays where it was.
+- **Aus deiner Blickrichtung:** Dein Team ist jetzt unten, der Gegner oben, im Match und bei der Frage
+  nach dem Aufschlag. Der Mini-Court ist beim Gegner gespiegelt: Schlägt er von seiner rechten Seite auf,
+  leuchtet das Feld links, so wie er dir auf dem Platz gegenübersteht.
+  Die Tasten passen dazu: hoch = Gegner, runter = dein Team.
+- **Einzelne Matches im Verlauf löschen:** Karte gedrückt halten, bis sie rot wird, dann nochmal tippen.
+  Ohne zweiten Tipp wird die Karte nach 3 Sekunden wieder normal. Beim Scrollen wird nichts ausgelöst.
 
-### 🔧 Changed
+### 🔧 Geändert
 
-- Points are now given only by tapping a team card. The up and down buttons did not work as intended on
-  the Bip 6 and are now locked like all buttons during a match.
-- The team cards are slightly shorter; the yellow hint badge now sits exactly between them and no
-  longer covers any part you can tap.
-- In the history, date, mode and duration share one line.
+- **Teamfarben gelten nur, solange die App läuft.** Beim nächsten Start sind wieder Grün und Blau
+  eingestellt. Teamnamen und alle anderen Optionen bleiben gespeichert.
 
-### 🐞 Fixed
+### ⚡ Schneller und sparsamer
 
-- A match abandoned during a tiebreak at 6:6 now shows the tiebreak score in the history, e.g. “6:6(4:2)”.
-- A team card stayed highlighted when your finger slid off it while tapping.
-- If the watch cannot save a match (e.g. storage full), the app no longer crashes: the match goes on
-  and a notice appears.
+- Uhrzeit und Spielzeit wecken die Uhr nur noch einmal pro Minute statt alle 10 Sekunden.
+- Bei einem Punkt wird nur noch neu gezeichnet, was sich wirklich ändert.
+- Pro Punkt wird nur noch einmal gespeichert statt zweimal.
+- Zählen und „Zurück“ brauchen weniger Rechenzeit.
+- Ein offenes Match aus Version 1.0.0 lässt sich nach dem Update einfach fortsetzen.
 
-### 📦 Other
+### 🐞 Behoben
 
-- The app no longer needs the permission for the old storage. Data from versions before 1.0.0 is no
-  longer imported.
+- Die App konnte bei Einstand (40:40) im Vorteil-Modus abstürzen.
 
-## 1.1.0 · 2026-09-28
+## 1.0.0 · 24.09.2026
 
-> Your team at the bottom, and single matches can be deleted.
+> Die erste Version für die Amazfit Bip 6.
 
-### ✨ New
+Erste Version für die Amazfit Bip 6.
 
-- **From your point of view:** Your team is now at the bottom and your opponents at the top, both during
-  the match and when choosing who serves first. The opponents' mini court is mirrored: when they serve from
-  their right side, the left box lights up, just as they face you across the net.
-  The buttons match the layout: up = opponents, down = your team.
-- **Delete single matches from the history:** Press and hold a card until it turns red, then tap it again.
-  Without a second tap the card returns to normal after 3 seconds. Scrolling never triggers it.
+### 🏆 Zählen
 
-### 🔧 Changed
-
-- **Team colors only last while the app is running.** On the next start they are back to green and blue.
-  Team names and all other options stay saved.
-
-### ⚡ Faster and more efficient
-
-- The clock and the match duration wake the watch only once a minute instead of every 10 seconds.
-- After a point, only what actually changed is redrawn.
-- Each point is saved once instead of twice.
-- Scoring and Undo need less processing time.
-- A match left open in version 1.0.0 can simply be continued after the update.
-
-### 🐞 Fixed
-
-- The app could crash at deuce (40:40) in Advantage mode.
-
-## 1.0.0 · 2026-09-24
-
-> The first version for the Amazfit Bip 6.
-
-First version for the Amazfit Bip 6.
-
-### 🏆 Scoring
-
-- Three scoring modes: **Advantage** (classic), **Golden Point** (one deciding point at 40:40) and
-  **Star Point** (FIP 2026: two advantages, the third deuce is decided by one point).
-- **1 or 3 sets**, with the 3rd set played as a normal set or as a **match tiebreak to 10**.
-- Tiebreak to 7 at 6:6, serving in the tiebreak follows the 1-2-2 pattern.
-- Change-of-ends reminder after every odd game and every 6 points in a tiebreak.
+- Drei Punkte-Modi: **Vorteil** (klassisch), **Golden Point** (bei 40:40 entscheidet ein Punkt) und
+  **Star Point** (FIP 2026: zwei Vorteile, beim dritten Einstand entscheidet ein Punkt).
+- **1 oder 3 Sätze**, der 3. Satz wahlweise normal oder als **Match-Tiebreak bis 10**.
+- Tiebreak bis 7 bei 6:6, Aufschlagwechsel im Tiebreak nach dem 1-2-2-Schema.
+- Hinweis zum Seitenwechsel nach jedem ungeraden Spiel und im Tiebreak alle 6 Punkte.
 
 ### 🎾 Match
 
-- Tap a team's card to give it the point, or use the up and down buttons.
-- Large point display (0/15/30/40/AD) and four bars for 15, 30, 40 and advantage.
-- Games in the current set and results of finished sets right on the team card.
-- **Mini court:** shows which team serves and from which side. At a Golden or Star Point both boxes light
-  up, and the receivers choose the side.
-- Hint badge for deuce (with a counter in Star Point mode), Golden/Star Point, tiebreak, match tiebreak,
-  change of ends and the end of the match.
-- Heart rate, time and match duration at the top.
-- **Undo** takes back the last point, as often as you like.
-- **End** finishes the match after a second tap. A match without a winner is saved as “Abandoned”.
-- To pause, just leave the app and tap “Continue” later.
+- Teamkarte antippen = Punkt, alternativ die Tasten hoch und runter.
+- Große Punktanzeige (0/15/30/40/AD) und vier Balken für 15, 30, 40 und Vorteil.
+- Spiele im laufenden Satz und Ergebnisse der fertigen Sätze direkt in der Teamkarte.
+- **Mini-Court:** zeigt, welches Team aufschlägt und von welcher Seite. Bei Golden oder Star Point
+  leuchten beide Felder, dann wählen die Rückschläger.
+- Hinweis-Schild für Einstand (bei Star Point mit Zähler), Golden/Star Point, Tiebreak,
+  Match-Tiebreak, Seitenwechsel und Matchende.
+- Oben Puls, Uhrzeit und Spielzeit.
+- **Zurück** nimmt den letzten Punkt zurück, beliebig oft.
+- **Ende** beendet das Match nach einem zweiten Tipp. Ohne Sieger landet es als „Abgebrochen“ im Verlauf.
+- Zum Pausieren einfach die App verlassen und später „Weiter“ tippen.
 
-### 📱 Other screens
+### 📱 Weitere Bildschirme
 
-- **Start:** “Continue” for an open match, “New match”, “Options”, “History” and info.
-- **Serve:** Before each match you choose which team serves first.
-- **Options:** scoring mode, sets, 3rd set, team names (up to 8 characters), 8 team colors,
-  vibration on change of ends, display during the match and language. Changes are saved immediately.
-- **History:** the last 30 matches with date, mode, duration, set scores and winner.
-- **Info:** version and developer.
+- **Start:** „Weiter“ für ein offenes Match, „Neues Spiel“, „Optionen“, „Verlauf“ und Info.
+- **Aufschlag:** Vor jedem Match wird gefragt, welches Team zuerst aufschlägt.
+- **Optionen:** Punkte-Modus, Sätze, 3. Satz, Teamnamen (bis 8 Zeichen), 8 Teamfarben,
+  Vibration beim Seitenwechsel, Display im Match und Sprache. Änderungen werden sofort gespeichert.
+- **Verlauf:** die letzten 30 Matches mit Datum, Modus, Dauer, Satzergebnissen und Sieger.
+- **Info:** Version und Entwickler.
 
-### ⌚ Watch and controls
+### ⌚ Uhr und Bedienung
 
-- Full screen with its own clock, in 12- or 24-hour format as set on the watch.
-- **Display in match:** “Always on” keeps the screen lit, even when you lower your wrist or cover it with
-  your hand. “Like the watch” uses the normal setting.
-- **Vibration only during the match:** a very light tick per point, two on a change of ends (can be turned
-  off). Menus don't vibrate.
-- German, English and Spanish, following the watch language or set manually.
+- Vollbild mit eigener Uhrzeit, im 12- oder 24-Stunden-Format wie an der Uhr eingestellt.
+- **Display im Match:** „Immer an“ hält den Bildschirm hell, auch beim Senken des Handgelenks oder wenn die
+  Hand ihn verdeckt. „Wie die Uhr“ nutzt die normale Einstellung.
+- **Vibration nur im Match:** ein ganz leichter Tick pro Punkt, beim Seitenwechsel zwei (abschaltbar).
+  Menüs vibrieren nicht.
+- Deutsch, Englisch und Spanisch, automatisch nach der Uhrsprache oder fest eingestellt.

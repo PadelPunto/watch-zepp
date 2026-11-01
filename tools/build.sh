@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Builds the .zab for the Zepp App Store (or a release) into dist/.
 # `zeus build` can overwrite .gitignore with the Zeus template, which would drop the entries
-# that keep TODO.md, CHANGELOG.de.md and BESCHREIBUNG.md local; the old .gitignore is put back
+# that keep TODO.md and BESCHREIBUNG.md local; the old .gitignore is put back
 # afterwards, also when the build fails.
 # --slim: without the intermediate products (.ip-package, over 1 MB), for passing the file on;
 # the .zab then holds only the finished app per screen size. Keep them for the Zepp App Store,

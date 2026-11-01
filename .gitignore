@@ -14,8 +14,6 @@ selenium-debug.log
 *.sln
 # local idea and test list
 TODO.md
-# German changelog, local only
-CHANGELOG.de.md
 # detailed app description (old README), local only
 BESCHREIBUNG.md
 __pycache__/
