@@ -1,7 +1,7 @@
 // Everything a machine can check before a release, in one run (the first part of the full test
 // before every release). Prints one line per check and exits with 1 if any fails.
 // Usage: npm run release-check            formatting, tests on every watch, versions, build stamp,
-//                                          README pictures, private files, privacy policy, pages
+//                                          private files, privacy policy, pages
 //        npm run release-check -- --zab   the same, then builds the slim .zab and checks it
 import { spawnSync } from 'node:child_process'
 import { readFileSync, readdirSync, statSync, existsSync, copyFileSync } from 'node:fs'
@@ -101,18 +101,7 @@ check('build stamp in page/diag.js newer than the last app change', () => {
   return [`BUILD is ${m[1]}.${m[2]}. ${m[3]}:${m[4]}, but ${newest.f} changed on ${when}`]
 })
 
-// 4. The README pictures show the current app: drawn again, nothing may change.
-check('README pictures up to date (tools/readme_art.py)', () => {
-  const dirty = () => git('status', '--porcelain', '--', 'docs/images')
-  const before = dirty()
-  if (before) return ['uncommitted changes in docs/images already:', ...before.split('\n')]
-  const r = sh('python3', ['tools/readme_art.py'])
-  if (r.status !== 0) return [`tools/readme_art.py failed: ${(r.stderr || '').trim().split('\n').pop()}`]
-  const after = dirty()
-  return after ? ['were outdated and are redrawn now; look at them and commit:', ...after.split('\n')] : []
-})
-
-// 5. The local-only files stay out of git.
+// 4. The local-only files stay out of git.
 check('private files stay local (.gitignore)', () => {
   const local = ['TODO.md', 'CHANGELOG.de.md', 'BESCHREIBUNG.md', 'store/LISTING.md', 'tools/store_art.py', '.claude/x']
   const problems = []
@@ -124,7 +113,7 @@ check('private files stay local (.gitignore)', () => {
   return problems
 })
 
-// 6. What the app saves and may use is in the privacy policy, and every saved file shows on the
+// 5. What the app saves and may use is in the privacy policy, and every saved file shows on the
 // diagnosis page. A new file needs its words below.
 const SAVED = { cfg: 'options', match: 'running match', log: 'history', court: 'court time', errors: 'error log' }
 check('PRIVACY.md and the diagnosis page know every saved file and permission', () => {
@@ -144,7 +133,7 @@ check('PRIVACY.md and the diagnosis page know every saved file and permission', 
   return problems
 })
 
-// 7. Every page in app.json exists and is opened by a test.
+// 6. Every page in app.json exists and is opened by a test.
 check('every page exists and is tested', () => {
   const tests = ['test', 'test/app']
     .flatMap((d) => files(d).filter((f) => f.endsWith('.mjs')))
@@ -156,7 +145,7 @@ check('every page exists and is tested', () => {
   ])
 })
 
-// 8. --zab: the slim package, without intermediate products, with this version
+// 7. --zab: the slim package, without intermediate products, with this version
 // for every screen size, copied to dist/PadelPunto-<version>.zab.
 if (zab)
   check(`dist/PadelPunto-${version}.zab (npm run build -- --slim)`, () => {

@@ -128,7 +128,6 @@ def ball(size):
     S = size * 4
     return ball_layer(S, S // 2, S // 2, S // 2 - 2).resize((size, size), Image.LANCZOS)
 
-# (tools/readme_art.py imports logo() from here)
 if __name__ == '__main__':
     out = sys.argv[1]
     os.makedirs(f'{out}/img', exist_ok=True)

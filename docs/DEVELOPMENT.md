@@ -1,6 +1,6 @@
 # Development
 
-Get the code and the tools first, as in [INSTALL.md](INSTALL.md) steps 1 and 2.
+Needs Node.js and the Zeus CLI (`npm install -g @zeppos/zeus-cli`).
 
 ```bash
 npm install
@@ -30,4 +30,3 @@ python3 tools/logo.py assets/default.s    # redraw logo, app icon and the spinni
 ~/.cache/padelpunto/tts/bin/python tools/voice.py <voices-dir> assets/default.s   # regenerate the score-call words (setup at the top of the file; licenses in CREDITS.md)
 ```
 
-`python3 tools/readme_art.py` redraws the banner and the watch pictures for the README from the current app: the screens (`tools/screens.mjs`) and the animated racket spin (`serve-spin.webp`, `tools/serve_spin.mjs`) are recorded on the simulated watch and drawn in Roboto, which the script downloads once into `~/.cache/padelpunto`. The bare screens (390×450) land in `docs/images/screenshots/`.
