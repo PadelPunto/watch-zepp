@@ -454,7 +454,7 @@ Page(
       buzz()
       if (!this.confirming) return this.undo()
       this.endConfirm.stop()
-      replace({ url: 'page/start' })
+      this.endPanel('leave', () => replace({ url: 'page/start' }))
     },
 
     tapEnd() {
@@ -466,7 +466,18 @@ Page(
     finish() {
       if (!hasStarted(this.state)) clearMatch()
       else if (!archiveMatch(this.state)) this.toastSaveFailed()
-      replace({ url: 'page/start' })
+      this.endPanel('end', () => replace({ url: 'page/start' }))
+    },
+
+    // Tells the tablet that the match was ended ('end') or left for later ('leave'), so its clock
+    // stops, then goes on (at once without a tablet).
+    endPanel(e, then) {
+      if (this.leaving) return
+      this.leaving = true
+      const link = this.link
+      this.link = null
+      if (!link) return then()
+      link.end(this.panelMessage([e]), then)
     },
 
     // MORE replaces the button's props, so it gets all of them.

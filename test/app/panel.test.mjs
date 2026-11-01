@@ -268,6 +268,38 @@ test('match: tablet not found keeps searching with pauses; leaving the match sto
   assert.equal(w.zos.ble.scanning, false, 'no search after leaving')
 })
 
+test('match: "Beenden" and "Verlassen" send a last message (end / leave), then stop the link', () => {
+  pairedMatch()
+  connect()
+  points(0, 1)
+  w.press(T.end).press(T.endConfirm)
+  settle()
+  let m = sent()
+  assert.equal(m.e, 'end', 'ended: the tablet stops its clock')
+  assert.deepEqual(m.p, ['15', '0'])
+  assert.equal(w.url, 'page/start')
+  assert.equal(w.zos.ble.connections, 0, 'link closed')
+
+  startMatch()
+  connect()
+  points(1, 1)
+  w.press(T.end).press(T.leave)
+  settle()
+  m = sent()
+  assert.equal(m.e, 'leave', 'left for later')
+  assert.equal(w.url, 'page/start')
+  assert.equal(w.zos.ble.connections, 0)
+})
+
+test('match: ending without a connection goes on at once', () => {
+  pairedMatch()
+  points(0, 1)
+  w.press(T.end).press(T.endConfirm)
+  w.flush()
+  assert.equal(w.url, 'page/start')
+  assert.equal(w.zos.ble.writes.length, 0)
+})
+
 test('match: no paired tablet or a training: no search and no board in the top bar', () => {
   w.launch()
   startMatch()

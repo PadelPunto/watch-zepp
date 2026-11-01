@@ -202,6 +202,8 @@ function stop() {
 export const RETRY_MS = [2000, 5000, 10000, 15000]
 // A write the watch never confirms doesn't block the next message for longer than this.
 const WRITE_MS = 3000
+// Ending or leaving a match waits at most this long for its last message to be written.
+export const END_MS = 1500
 
 let link = null
 
@@ -234,6 +236,9 @@ export function panelLink({ onState, sync }) {
   linkScan(me)
   return {
     send: (text) => linkSend(me, text),
+    // The last message when the match is ended or left: written if connected, then the link
+    // stops and done() runs (at once without a connection, after END_MS at the latest).
+    end: (text, done) => linkEnd(me, text, done),
     stop: () => {
       if (link === me) stopLink()
     },
@@ -380,6 +385,23 @@ function linkWritten(me) {
   clearTimeout(me.writeTimer)
   me.writing = false
   if (me.ready && me.latest !== null) linkWrite(me, null)
+  else if (me.ended) me.ended()
+}
+
+function linkEnd(me, text, done) {
+  let called = false
+  let timer = null
+  const finish = () => {
+    if (called) return
+    called = true
+    clearTimeout(timer)
+    if (link === me) stopLink()
+    done()
+  }
+  if (link !== me || !me.ready) return finish()
+  me.ended = finish
+  timer = setTimeout(finish, END_MS)
+  linkSend(me, text)
 }
 
 function stopLink() {
@@ -391,7 +413,10 @@ function stopLink() {
 
 // The event a message names: the most important of what addPoint reported, else 'undo' or 'sync'.
 export function panelEvent(events) {
-  return ['match', 'set', 'game', 'switch', 'point', 'undo', 'sync'].find((x) => events.includes(x)) || 'sync'
+  return (
+    ['match', 'set', 'game', 'switch', 'point', 'undo', 'end', 'leave', 'sync'].find((x) => events.includes(x)) ||
+    'sync'
+  )
 }
 
 // The score message (PROTOCOL.md), the whole score: e the event (panelEvent), w the winner of the
