@@ -572,6 +572,7 @@ Page(
         labels: pointLabels(s),
         server: currentServer(s),
         hint,
+        sw: events.includes('switch'),
       })
     },
 

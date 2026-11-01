@@ -421,8 +421,9 @@ export function panelEvent(events) {
 
 // The score message (PROTOCOL.md), the whole score: e the event (panelEvent), w the winner of the
 // game, set or match in e (-1 for a draw) or null, labels/server/hint as on the watch screen
-// (hint: { k, n } or null), now for the match duration.
-export function scoreMessage(s, { e, w, key, now, labels, server, hint }) {
+// (hint: { k, n } or null), now for the match duration, sw: a change of ends comes with this
+// change (also when e names the won game or set, which comes first).
+export function scoreMessage(s, { e, w, key, now, labels, server, hint, sw = false }) {
   const sets = s.sets.map((set) => {
     if (set.mtb) return { t: set.tb, m: 1 }
     return set.tb ? { g: set.g, t: set.tb } : { g: set.g }
@@ -442,5 +443,6 @@ export function scoreMessage(s, { e, w, key, now, labels, server, hint }) {
     t: Math.max(0, Math.round(((s.endedAt || now) - s.startedAt) / 1000)),
     r: { m: s.cfg.mode, b: s.cfg.bestOf, gs: s.cfg.games, d: s.cfg.decider },
     k: key,
+    ...(sw ? { sw: 1 } : {}),
   })
 }
