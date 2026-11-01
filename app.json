@@ -1,8 +1,8 @@
 {
   "configVersion": "v3",
   "app": {
-    "appId": 1132341,
-    "appName": "PP Test",
+    "appId": 1132340,
+    "appName": "Padel Punto",
     "appType": "app",
     "version": {
       "code": 10,
@@ -53,19 +53,19 @@
   },
   "i18n": {
     "en-US": {
-      "appName": "PP Test"
+      "appName": "Padel Punto"
     },
     "de-DE": {
-      "appName": "PP Test"
+      "appName": "Padel Punto"
     },
     "es-ES": {
-      "appName": "PP Test"
+      "appName": "Padel Punto"
     },
     "it-IT": {
-      "appName": "PP Test"
+      "appName": "Padel Punto"
     },
     "fr-FR": {
-      "appName": "PP Test"
+      "appName": "Padel Punto"
     }
   },
   "defaultLanguage": "en-US"
