@@ -170,7 +170,7 @@ export default {
   panelPairedWith: 'Gekoppelt mit',
   panelRepair: 'Neu koppeln',
   panelForget: 'Vergessen',
-  panelDone: 'Gekoppelt mit {code}',
+  panelCheck: "Gleiche Zahl am Tablet? Dort 'Passt' tippen.",
   panelNone: 'Kein Tablet zum Koppeln gefunden',
   panelFailed: 'Koppeln ging nicht',
   panelForgot: 'Tablet vergessen',

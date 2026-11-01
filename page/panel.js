@@ -1,6 +1,7 @@
 // Tablet (Padel Punto Panel): opened from the ball of the start-screen logo. Without a paired
 // tablet it explains the pairing and offers "Koppeln"; while searching "Abbrechen"; with a paired
-// tablet it shows the code (as on the tablet) with "Neu koppeln" and "Vergessen".
+// tablet it shows the code (as on the tablet) with "Neu koppeln" and "Vergessen". Right after
+// pairing it shows the check number to compare with the tablet, where "Passt" is tapped.
 // Opened and left with replace() like the options (button, swipe right or back key).
 import * as hmUI from '@zos/ui'
 import { replace } from '@zos/router'
@@ -33,12 +34,37 @@ function bigButton(y, x, w, label, primary, onClick, color) {
 
 Page(
   safePage('panel', {
+    // params (JSON, from this page's own replace()): { n } = just paired, show the check number.
+    onInit(params) {
+      try {
+        this.check = (JSON.parse(params || '{}') || {}).n || 0
+      } catch (e) {
+        this.check = 0
+      }
+    },
+
     build() {
       fullScreen()
       this.stopClock = header(tr('panel'))
       this.offLeave = onLeave(() => home())
       const { code } = loadPanel()
       const center = { x: px(24), w: px(342), align_h: hmUI.align.CENTER_H }
+
+      if (code && this.check) {
+        text({
+          ...center,
+          y: px(96),
+          h: px(64),
+          text: tr('panelCheck'),
+          text_size: px(24),
+          color: 0xffffff,
+          text_style: hmUI.text_style.WRAP,
+        })
+        text({ ...center, y: px(160), h: px(130), text: String(this.check), text_size: px(120), color: C.ball })
+        text({ ...center, y: px(288), h: px(30), text: panelName(code), text_size: px(22), color: C.muted })
+        bigButton(326, 12, 366, tr('ok'), true, () => replace({ url: 'page/panel' }))
+        return
+      }
 
       if (code) {
         text({ ...center, y: px(104), h: px(30), text: tr('panelPairedWith'), text_size: px(24), color: C.muted })
@@ -81,10 +107,9 @@ Page(
       this.searching(true)
       this.stopPair = pair((result) => {
         this.stopPair = null
-        if (result.ok) toast(tr('panelDone', { code: panelName(result.code) }))
-        else toast(result.why === 'none' ? tr('panelNone') : tr('panelFailed'))
-        // Built anew, so the page shows the new state (paired or not).
-        replace({ url: 'page/panel' })
+        if (!result.ok) toast(result.why === 'none' ? tr('panelNone') : tr('panelFailed'))
+        // Built anew, so the page shows the new state (paired: the check number first).
+        replace({ url: 'page/panel', params: result.ok ? { n: result.n } : undefined })
       })
     },
 

@@ -170,7 +170,7 @@ export default {
   panelPairedWith: 'Associée à',
   panelRepair: 'Associer à nouveau',
   panelForget: 'Oublier',
-  panelDone: 'Associée à {code}',
+  panelCheck: "Même nombre sur la tablette ? Touchez 'Passt' là-bas.",
   panelNone: 'Aucune tablette prête à associer',
   panelFailed: 'Association impossible',
   panelForgot: 'Tablette oubliée',

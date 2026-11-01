@@ -65,7 +65,14 @@ function watchName() {
 // One pairing at a time; its state lives here because the BLE callbacks are global.
 let run = null
 
-// Looks for a tablet in its pairing window, connects and pairs. onDone gets { ok: true, code } or
+// A new two-digit number for each pairing (10–99). The watch sends it along and shows it; the
+// tablet shows the number it got and pairs only when "Passt" is tapped there, so a strange watch
+// pairing at the same moment is noticed.
+export function newCheck() {
+  return 10 + Math.floor(Math.random() * 90)
+}
+
+// Looks for a tablet in its pairing window, connects and pairs. onDone gets { ok: true, code, n } or
 // { ok: false, why: 'none' } (nothing found within SCAN_MS) / { ok: false, why: 'failed' }.
 // Returns a function that cancels the pairing (onDone is not called then).
 export function pair(onDone) {
@@ -131,7 +138,8 @@ function buildProfile(me) {
       if (r.status !== 0) return me.finish({ ok: false, why: 'failed' })
       me.profile = r.profile
       me.key = loadPanel().key || newKey()
-      const msg = JSON.stringify({ v: 1, e: 'pair', k: me.key, dn: watchName() })
+      me.n = newCheck()
+      const msg = JSON.stringify({ v: 1, e: 'pair', k: me.key, dn: watchName(), n: me.n })
       const data = utf8(msg)
       ble.mstWriteCharacteristic(me.profile, SCORE, data, data.byteLength)
     }),
@@ -139,7 +147,7 @@ function buildProfile(me) {
   ble.mstOnCharaWriteComplete(
     safe('panelWrite', (r) => {
       if (run !== me) return
-      me.finish(r.status === 0 ? { ok: true, code: me.code } : { ok: false, why: 'failed' })
+      me.finish(r.status === 0 ? { ok: true, code: me.code, n: me.n } : { ok: false, why: 'failed' })
     }),
   )
   setTimeout(() => {
