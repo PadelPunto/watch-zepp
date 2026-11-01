@@ -73,5 +73,3 @@ get once from your Zepp account. Gadgetbridge explains it in its
 
 > [!NOTE]
 > This way has not been tried with Padel Punto yet.
-
-← [Back to the README](../README.md)
