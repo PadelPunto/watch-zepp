@@ -1,9 +1,10 @@
 // Padel Punto Panel: the tablet next to the court that shows the score big (Android app, protocol
-// in PadelPuntoPanel/PROTOCOL.md). Zepp OS apps can only scan and connect (BLE master), so the
-// watch always starts the connection, but pairing starts on the tablet: "Uhr koppeln" opens a
-// pairing window, and the tablet then advertises as "PPP-4711+" instead of "PPP-4711". The watch
-// takes the first tablet it sees in that state, connects, writes a pair message with its own key
-// and remembers the code. The tablet keeps the key and from then on only takes that watch.
+// in PROTOCOL.md of github.com/PadelPunto/protocol). Zepp OS apps can only scan and connect (BLE
+// master), so the watch always starts the connection, but pairing starts on the tablet: "Uhr
+// koppeln" opens a pairing window, and the tablet then advertises as "PPP-4711+" instead of
+// "PPP-4711". The watch takes the first tablet it sees in that state, connects, writes a pair
+// message with its own key and remembers the code. The tablet keeps the key and from then on only
+// takes that watch.
 import * as ble from '@zos/ble'
 import { getDeviceInfo } from '@zos/device'
 import { read, write, remove } from './files'

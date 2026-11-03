@@ -71,6 +71,7 @@ def ball_layer(S, cx, cy, r):
     out.paste(ball, (0, 0), mask)
     return out.rotate(-35, resample=Image.BICUBIC, center=(cx, cy))
 
+# (tools/readme_art.py imports logo() from here)
 def logo(size, bg=None):
     S = size * 4
     base = Image.new('RGBA', (S, S), (0, 0, 0, 0))
