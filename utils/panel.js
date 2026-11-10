@@ -198,9 +198,10 @@ function stop() {
 
 // ---- during a match: connection to the paired tablet and the score messages ----
 
-// Wait before the next search after a failed or lost connection (the last value repeats), so a
-// tablet that is switched off doesn't keep the watch scanning all the time.
-export const RETRY_MS = [2000, 5000, 10000, 15000]
+// Wait before the next search after a failed or lost connection (the last value repeats). A short
+// drop is found again quickly; a tablet that is switched off or not at the court is then looked
+// for only once a minute, so the watch doesn't scan through the whole match (battery).
+export const RETRY_MS = [2000, 5000, 10000, 15000, 30000, 60000]
 // A write the watch never confirms doesn't block the next message for longer than this.
 const WRITE_MS = 3000
 // Ending or leaving a match waits at most this long for its last message to be written.

@@ -171,6 +171,7 @@ export default {
   panelRepair: 'Neu koppeln',
   panelForget: 'Vergessen',
   panelCheck: "Gleiche Zahl am Tablet? Dort 'Passt' tippen.",
+  panelNo: 'Nein',
   panelNone: 'Kein Tablet zum Koppeln gefunden',
   panelFailed: 'Koppeln ging nicht',
   panelForgot: 'Tablet vergessen',

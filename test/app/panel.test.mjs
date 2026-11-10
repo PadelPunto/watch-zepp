@@ -78,6 +78,23 @@ test('panel: pairs with the tablet in its pairing window, sends the pair message
   assert.ok(w.has('4711'), 'code below the ball')
 })
 
+test('panel: "Nein" at the check number forgets the tablet again and keeps the watch key', () => {
+  w.launch()
+  openPanel()
+  w.press(T.panelPair)
+  w.zos.ble.advertise('PPP-4711+')
+  settle()
+  const { k } = JSON.parse(w.zos.ble.writes[0])
+  assert.ok(w.has(T.panelCheck))
+  w.press(T.panelNo)
+  assert.equal(w.url, 'page/panel')
+  assert.deepEqual(saved('panel'), { code: null, key: k })
+  assert.equal(w.has(T.panelCheck), false)
+  assert.ok(w.has(T.panelPair), 'ready to pair again')
+  w.press(T.back)
+  assert.equal(ball().props.normal_src, 'img/ball_panel.png', 'not paired')
+})
+
 test('panel: no tablet in its pairing window, a failed connection or write: a message, nothing saved', () => {
   w.launch()
   openPanel()
@@ -269,6 +286,24 @@ test('match: tablet not found keeps searching with pauses; leaving the match sto
   assert.equal(w.zos.ble.scanning, false)
   settle(20000)
   assert.equal(w.zos.ble.scanning, false, 'no search after leaving')
+})
+
+test('match: a tablet that stays away is searched less and less, in the end once a minute', () => {
+  pairedMatch()
+  for (const wait of RETRY_MS) {
+    w.tick(SCAN_MS)
+    assert.equal(w.zos.ble.scanning, false, 'pause after a search')
+    settle(wait - 200)
+    assert.equal(w.zos.ble.scanning, false, `still pausing after ${wait - 200} ms`)
+    settle(400)
+    assert.ok(w.zos.ble.scanning, `next search after ${wait} ms`)
+  }
+  assert.equal(RETRY_MS[RETRY_MS.length - 1], 60000)
+  w.tick(SCAN_MS)
+  settle(59800)
+  assert.equal(w.zos.ble.scanning, false, 'the last pause repeats')
+  settle(400)
+  assert.ok(w.zos.ble.scanning)
 })
 
 test('match: "Beenden" and "Verlassen" send a last message (end / leave), then stop the link', () => {

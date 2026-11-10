@@ -2,7 +2,7 @@
 // tablet it explains the pairing and offers "Koppeln"; while searching "Abbrechen"; with a paired
 // tablet it shows the code (as on the tablet) with "Neu koppeln" and "Vergessen". Right after
 // pairing it shows the check number to compare with the tablet, where "Passt" is tapped; OK goes
-// back to the start screen.
+// back to the start screen, "Nein" forgets the tablet again.
 // Opened and left with replace() like the options (button, swipe right or back key).
 import * as hmUI from '@zos/ui'
 import { replace } from '@zos/router'
@@ -63,7 +63,10 @@ Page(
         })
         text({ ...center, y: px(160), h: px(130), text: String(this.check), text_size: px(120), color: C.ball })
         text({ ...center, y: px(288), h: px(30), text: panelName(code), text_size: px(22), color: C.muted })
-        bigButton(326, 12, 366, tr('ok'), true, () => home())
+        // "Nein": the numbers differ or the tablet did not take the watch, so the watch must not
+        // count as paired either (it could not tell during a match: it only writes to the tablet).
+        bigButton(326, 12, 179, tr('panelNo'), false, () => this.forget())
+        bigButton(326, 199, 179, tr('ok'), true, () => home())
         return
       }
 

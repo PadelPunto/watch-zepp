@@ -14,10 +14,12 @@ Alle Änderungen an Padel Punto, neueste Version oben.
 - **Tablet-Anzeige:** Koppel die Uhr mit einem Tablet, auf dem die kostenlose App Padel Punto
   Panel läuft, und der Spielstand des laufenden Matches erscheint groß am Platz. Tippe auf dem
   Tablet „Uhr koppeln“, dann auf der Uhr auf den Ball im Logo und „Koppeln“; beide zeigen
-  dieselbe Prüfzahl, die du auf dem Tablet bestätigst. Danach zeigt der Ball den Code des
+  dieselbe Prüfzahl, die du auf dem Tablet bestätigst. Stimmt die Zahl nicht, tippst du auf der
+  Uhr „Nein“, und sie vergisst das Tablet wieder. Danach zeigt der Ball den Code des
   Tablets, und bei jedem Match verbindet sich die Uhr von selbst: Punkte, Spiele, Sätze,
   Aufschlag, Teamnamen und Seitenwechsel kommen live an, eine kleine Tafel oben im Match-Bildschirm
-  wird grün, solange die Verbindung steht. Ohne gekoppeltes Tablet wird nichts gesendet, und
+  wird grün, solange die Verbindung steht. Ist das Tablet einmal nicht am Platz, sucht die Uhr
+  nach kurzer Zeit nur noch einmal pro Minute danach, das schont den Akku. Ohne gekoppeltes Tablet wird nichts gesendet, und
   immer nur an dieses (siehe [Datenschutz](PRIVACY.md)).
 
 ### 🔧 Geändert

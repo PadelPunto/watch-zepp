@@ -171,6 +171,7 @@ export default {
   panelRepair: 'Vincular de nuevo',
   panelForget: 'Olvidar',
   panelCheck: "¿El mismo número en la tableta? Toca 'Passt' allí.",
+  panelNo: 'No',
   panelNone: 'Ninguna tablet lista para vincular',
   panelFailed: 'No se pudo vincular',
   panelForgot: 'Tablet olvidada',

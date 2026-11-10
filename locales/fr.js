@@ -171,6 +171,7 @@ export default {
   panelRepair: 'Associer à nouveau',
   panelForget: 'Oublier',
   panelCheck: "Même nombre sur la tablette ? Touchez 'Passt' là-bas.",
+  panelNo: 'Non',
   panelNone: 'Aucune tablette prête à associer',
   panelFailed: 'Association impossible',
   panelForgot: 'Tablette oubliée',
