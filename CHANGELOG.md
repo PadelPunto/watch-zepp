@@ -20,7 +20,8 @@ Alle Änderungen an Padel Punto, neueste Version oben.
   Aufschlag, Teamnamen und Seitenwechsel kommen live an, eine kleine Tafel oben im Match-Bildschirm
   wird grün, solange die Verbindung steht. Ist das Tablet einmal nicht am Platz, sucht die Uhr
   nach kurzer Zeit nur noch einmal pro Minute danach, das schont den Akku. Ohne gekoppeltes Tablet wird nichts gesendet, und
-  immer nur an dieses (siehe [Datenschutz](PRIVACY.md)).
+  immer nur an dieses (siehe [Datenschutz](PRIVACY.md)). Das Tablet spricht dieselben fünf
+  Sprachen wie die Uhr.
 
 ### 🔧 Geändert
 

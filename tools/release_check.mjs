@@ -115,7 +115,14 @@ check('private files stay local (.gitignore)', () => {
 
 // 6. What the app saves and may use is in the privacy policy, and every saved file shows on the
 // diagnosis page. A new file needs its words below.
-const SAVED = { cfg: 'options', match: 'running match', log: 'history', court: 'court time', errors: 'error log' }
+const SAVED = {
+  cfg: 'options',
+  match: 'running match',
+  log: 'history',
+  court: 'court time',
+  errors: 'error log',
+  panel: 'paired a tablet',
+}
 check('PRIVACY.md and the diagnosis page know every saved file and permission', () => {
   const privacy = read('PRIVACY.md')
   // The saved files are named in their own section, so "court timer" elsewhere does not count.

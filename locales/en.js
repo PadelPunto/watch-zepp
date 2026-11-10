@@ -170,7 +170,7 @@ export default {
   panelPairedWith: 'Paired with',
   panelRepair: 'Pair again',
   panelForget: 'Forget',
-  panelCheck: "Same number on the tablet? Tap 'Passt' there.",
+  panelCheck: "Same number on the tablet? Tap 'Yes' there.",
   panelNo: 'No',
   panelNone: 'No tablet ready to pair',
   panelFailed: 'Pairing failed',

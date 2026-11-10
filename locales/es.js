@@ -170,7 +170,7 @@ export default {
   panelPairedWith: 'Vinculado con',
   panelRepair: 'Vincular de nuevo',
   panelForget: 'Olvidar',
-  panelCheck: "¿El mismo número en la tableta? Toca 'Passt' allí.",
+  panelCheck: "¿El mismo número en la tableta? Toca 'Sí' allí.",
   panelNo: 'No',
   panelNone: 'Ninguna tablet lista para vincular',
   panelFailed: 'No se pudo vincular',

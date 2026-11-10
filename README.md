@@ -111,7 +111,7 @@ Put an Android tablet at the court and everyone sees the score: the free app
 watch over Bluetooth, in two designs. You keep counting on the watch as always; if the tablet is
 gone, nothing changes.
 
-- **Pair once:** tap “Uhr koppeln” on the tablet (its texts are in German for now), then the ball
+- **Pair once:** tap “Pair watch” on the tablet (it speaks the same five languages), then the ball
   in the logo on the watch – both show the same check number
 - **Then it just works:** at every match the watch connects by itself; points, games, sets,
   serve, team names and changes of ends arrive at once

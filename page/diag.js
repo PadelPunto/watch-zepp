@@ -30,8 +30,8 @@ import { tr, dateText } from '../utils/i18n'
 const ROW_H = 30
 // Raised by hand with each test build, so a preview on the watch can be told apart from the
 // previous one (the version stays the same until a release).
-const BUILD = '24.10. 22:35'
-const FILES = ['cfg', 'match', 'log', 'court', 'errors']
+const BUILD = '10.11. 21:01'
+const FILES = ['cfg', 'match', 'log', 'court', 'errors', 'panel']
 // "¡Pádel Punto!" in Spanish (tools/voice.py). The docs say file paths start in the assets folder
 // but show only 'data://' in their example, so the test tries both spellings in turn.
 const SOUND_PATHS = ['sound/padel_punto.mp3', 'assets://sound/padel_punto.mp3']

@@ -170,7 +170,7 @@ export default {
   panelPairedWith: 'Associato a',
   panelRepair: 'Associa di nuovo',
   panelForget: 'Dimentica',
-  panelCheck: "Stesso numero sul tablet? Tocca 'Passt' lì.",
+  panelCheck: "Stesso numero sul tablet? Tocca 'Sì' lì.",
   panelNo: 'No',
   panelNone: 'Nessun tablet pronto da associare',
   panelFailed: 'Associazione non riuscita',

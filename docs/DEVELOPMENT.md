@@ -22,6 +22,7 @@ The tests run without a watch or simulator:
 - **Every screen size:** the app tests run on a Bip 6 (390×450), again on a Bip Max (432×514, `test/app.bipmax.test.mjs`) and on an Active 2 (Square) (`test/app.active2.test.mjs`, the Bip 6 screen with its own model name). Watches are listed in `DEVICES` in `test/mock/zos.mjs`; tests tap at points of the 390 px design, scaled like `px()`.
 - **Performance limits:** wake-ups per minute, redraws and file writes per point, widgets per page and leaks (`test/perf.test.mjs`).
 - **Storage** and **texts:** every language has the same keys.
+- **Tablet:** with Padel Punto Panel next to this repository (`../Panel`), whole matches under every kind of rules are compared with what the tablet would show (`test/app/tablet.test.mjs`); skipped without it.
 
 Tools:
 
