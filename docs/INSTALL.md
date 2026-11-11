@@ -1,6 +1,8 @@
 # Install Padel Punto on your watch
 
-Padel Punto is not in the Zepp app store yet. Every version is on the
+Padel Punto is in the Zepp App Store: in the Zepp app on your phone, open your watch, go to the App Store and search
+for “Padel Punto”. That is the easy way. New versions reach the store after Zepp's review, so if you want the newest one
+at once, or you use Gadgetbridge, install it yourself. Every version is on the
 **[Releases page](https://github.com/PadelPunto/watch-zepp/releases)**, and there are two ways to get it onto your watch:
 
 | | You use | You need |

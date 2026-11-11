@@ -103,13 +103,16 @@
 ## 📺 Tablet scoreboard
 
 <p align="center">
-  <a href="https://github.com/PadelPunto/app-android"><img src="docs/images/panel/banner.png" alt="Padel Punto Panel: the score from the watch, big on a tablet at the court" width="720"></a>
+  <img src="docs/images/panel/banner.png" alt="Padel Punto Panel: the score from the watch, big on a tablet at the court" width="720">
 </p>
 
-Put an Android tablet at the court and everyone sees the score: the free app
-**[Padel Punto Panel](https://github.com/PadelPunto/app-android)** shows it big, live from your
-watch over Bluetooth, in two designs. You keep counting on the watch as always; if the tablet is
-gone, nothing changes.
+> [!NOTE]
+> **Coming soon.** The tablet scoreboard arrives with Padel Punto 2.0 and the app Padel Punto Panel.
+> Both are being tested at the court right now and are not available yet.
+
+Put an Android tablet at the court and everyone sees the score: the free app **Padel Punto Panel**
+shows it big, live from your watch over Bluetooth, in two designs. You keep counting on the watch
+as always; if the tablet is gone, nothing changes.
 
 - **Pair once:** tap “Pair watch” on the tablet (it speaks the same five languages), then the ball
   in the logo on the watch – both show the same check number
@@ -117,13 +120,17 @@ gone, nothing changes.
   serve, team names and changes of ends arrive at once
 - **Private:** only your paired tablet gets the score, nothing goes to the internet
   ([privacy policy](PRIVACY.md))
-- **Needs** Padel Punto 2.0 or newer and an Android tablet (Android 8+); the app is a download on
-  its [Releases](https://github.com/PadelPunto/app-android/releases/latest) page
+- **Needs** Padel Punto 2.0 or newer and an Android tablet (Android 8+)
 
 ## ⌚ Get it on your watch
 
-Padel Punto runs on the square Amazfit watches **Bip 6**, **Active 2 (Square)** and **Bip Max** (Zepp OS 4 or newer). It is not in the Zepp app store yet;
-grab the newest version from the **[Releases](https://github.com/PadelPunto/watch-zepp/releases/latest)**.
+Padel Punto runs on the square Amazfit watches **Bip 6**, **Active 2 (Square)** and **Bip Max** (Zepp OS 4 or newer).
+
+**The easy way: the Zepp App Store.** In the Zepp app on your phone, open your watch, go to the App Store and
+search for “Padel Punto”. New versions reach the store after Zepp's review, so it can be a version behind
+(the [changelog](CHANGELOG.md) is in German and lists every version).
+
+**Or install it yourself** from the **[Releases](https://github.com/PadelPunto/watch-zepp/releases/latest)**:
 
 | | 📱 With the Zepp app | 🤖 With Gadgetbridge |
 |---|---|---|
@@ -139,8 +146,8 @@ grab the newest version from the **[Releases](https://github.com/PadelPunto/watc
 > **Got another Amazfit watch with Zepp OS 4+?** Padel Punto is made for the square Bip 6, Active 2 (Square) and Bip Max, and I would love to bring it to
 > more watches, for example with round screens like the Active 2, Balance or T-Rex 3.
 >
-> 1. Open an **[issue](https://github.com/PadelPunto/watch-zepp/issues/new?title=Tester:%20)** with your watch model and
->    its Zepp OS version (on the watch: Settings → About).
+> 1. Open an **[issue](https://github.com/PadelPunto/watch-zepp/issues/new?title=Tester:%20)** or write to
+>    <padelpunto@mailbox.org> with your watch model and its Zepp OS version (on the watch: Settings → About).
 > 2. You get a test build for your watch.
 > 3. Play a match or two and tell me what looks wrong. Photos of the watch help a lot.
 
