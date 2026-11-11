@@ -56,11 +56,13 @@ check(`version ${version} in package.json, both changelogs and above the last re
   const problems = []
   const pkg = JSON.parse(read('package.json'))
   if (pkg.version !== version) problems.push(`package.json says ${pkg.version}`)
-  // English (CHANGELOG.md, dates 2026-10-24) and German (CHANGELOG.de.md, dates 24.10.2026)
+  // English (CHANGELOG.md, dates 2026-10-24) and, where it exists, the local German one
+  // (CHANGELOG.de.md, dates 24.10.2026, not in git)
   for (const [file, date, hint, index] of [
     ['CHANGELOG.md', /^\d{4}-\d{2}-\d{2}$/, 'YYYY-MM-DD', /^\*\*Versions:\*\*.*$/m],
     ['CHANGELOG.de.md', /^\d{2}\.\d{2}\.\d{4}$/, 'DD.MM.YYYY', /^\*\*Versionen:\*\*.*$/m],
   ]) {
+    if (!existsSync(join(ROOT, file))) continue
     const text = read(file)
     const h = text.match(/^## (\S+) · (.+)$/m)
     if (!h || h[1] !== version) problems.push(`${file}: newest entry is ${h && h[1]}`)
@@ -109,7 +111,7 @@ check('README pictures up to date (tools/readme_art.py)', () => {
 
 // 5. The local-only files stay out of git.
 check('private files stay local (.gitignore)', () => {
-  const local = ['TODO.md', 'BESCHREIBUNG.md', 'store/LISTING.md', 'tools/store_art.py', '.claude/x']
+  const local = ['TODO.md', 'CHANGELOG.de.md', 'BESCHREIBUNG.md', 'store/LISTING.md', 'tools/store_art.py', '.claude/x']
   const problems = []
   for (const f of local) {
     if (sh('git', ['check-ignore', '-q', '--no-index', f]).status !== 0) problems.push(`${f} is not in .gitignore`)

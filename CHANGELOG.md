@@ -1,6 +1,6 @@
 # 📝 Changelog – Padel Punto
 
-All changes to Padel Punto, newest version first. Auf Deutsch: [CHANGELOG.de.md](CHANGELOG.de.md).
+All changes to Padel Punto, newest version first.
 
 **Versions:** [1.8.0](#180--2026-10-24) · [1.7.0](#170--2026-10-20) · [1.6.0](#160--2026-10-17) · [1.5.0](#150--2026-10-14) · [1.4.0](#140--2026-10-10) · [1.3.0](#130--2026-10-07) · [1.2.1](#121--2026-10-04) · [1.2.0](#120--2026-10-02) · [1.1.0](#110--2026-09-28) · [1.0.0](#100--2026-09-24)
 
