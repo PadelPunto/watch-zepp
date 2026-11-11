@@ -9,6 +9,7 @@
     "format": "prettier --write \"**/*.{js,mjs}\"",
     "check": "prettier --check \"**/*.{js,mjs}\" && npm test",
     "build": "bash tools/build.sh",
+    "preview-test": "bash tools/test_preview.sh",
     "release-check": "node tools/release_check.mjs"
   },
   "author": "Toni",
