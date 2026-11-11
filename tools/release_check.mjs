@@ -52,16 +52,22 @@ if (!zab)
   })
 
 // 2. One version everywhere, raised since the last release, with a dated changelog entry.
-check(`version ${version} in package.json, the changelog and above the last release`, () => {
+check(`version ${version} in package.json, both changelogs and above the last release`, () => {
   const problems = []
   const pkg = JSON.parse(read('package.json'))
   if (pkg.version !== version) problems.push(`package.json says ${pkg.version}`)
-  const de = read('CHANGELOG.md')
-  const h = de.match(/^## (\S+) · (.+)$/m)
-  if (!h || h[1] !== version) problems.push(`CHANGELOG.md: newest entry is ${h && h[1]}`)
-  else if (!/^\d{2}\.\d{2}\.\d{4}$/.test(h[2])) problems.push(`CHANGELOG.md: "${h[2]}" instead of a date (DD.MM.YYYY)`)
-  if (!de.match(/^\*\*Versionen:\*\*.*$/m)?.[0].includes(`[${version}](#`))
-    problems.push('CHANGELOG.md: not in the version index at the top')
+  // English (CHANGELOG.md, dates 2026-10-24) and German (CHANGELOG.de.md, dates 24.10.2026)
+  for (const [file, date, hint, index] of [
+    ['CHANGELOG.md', /^\d{4}-\d{2}-\d{2}$/, 'YYYY-MM-DD', /^\*\*Versions:\*\*.*$/m],
+    ['CHANGELOG.de.md', /^\d{2}\.\d{2}\.\d{4}$/, 'DD.MM.YYYY', /^\*\*Versionen:\*\*.*$/m],
+  ]) {
+    const text = read(file)
+    const h = text.match(/^## (\S+) · (.+)$/m)
+    if (!h || h[1] !== version) problems.push(`${file}: newest entry is ${h && h[1]}`)
+    else if (!date.test(h[2])) problems.push(`${file}: "${h[2]}" instead of a date (${hint})`)
+    if (!text.match(index)?.[0].includes(`[${version}](#`))
+      problems.push(`${file}: not in the version index at the top`)
+  }
   const tags = git('tag', '--sort=-v:refname').split('\n').filter(Boolean)
   if (tags.includes(`v${version}`)) notes.push(`v${version} is already released; raise the version for a new one`)
   const last = tags.find((t) => t !== `v${version}`)

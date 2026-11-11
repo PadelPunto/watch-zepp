@@ -128,7 +128,7 @@ Padel Punto runs on the square Amazfit watches **Bip 6**, **Active 2 (Square)** 
 
 **The easy way: the Zepp App Store.** In the Zepp app on your phone, open your watch, go to the App Store and
 search for “Padel Punto”. New versions reach the store after Zepp's review, so it can be a version behind
-(the [changelog](CHANGELOG.md) is in German and lists every version).
+(the [changelog](CHANGELOG.md) lists every version).
 
 **Or install it yourself** from the **[Releases](https://github.com/PadelPunto/watch-zepp/releases/latest)**:
 
